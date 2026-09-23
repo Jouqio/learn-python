@@ -1,43 +1,62 @@
-"""
-Topic: Pip (Package Manager)
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# pip installs and manages third-party Python packages, usually inside a virtual environment.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-# This file documents pip usage rather than running package installs.
-print("pip install <package>       # install a package")
-print("pip uninstall <package>     # remove a package")
-print("pip list                    # show installed packages")
-print("pip freeze > requirements.txt  # export dependencies")
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Write the pip command to install the 'requests' package (as a comment).
-# EXERCISE 2 (easy): Write the pip command to install a specific version of a package.
-# EXERCISE 3 (easy): Write the command to generate a requirements.txt from your environment.
-# EXERCISE 4 (medium): Write the command to install everything listed in requirements.txt.
-# EXERCISE 5 (medium): Explain (via prints) why you should always use pip inside a virtual environment.
+# pip adalah alat bawaan Python untuk menginstal paket dari internet.
+# Paket adalah kode yang dibuat orang lain dan bisa kita gunakan langsung.
 #
-# Write your solutions below this line.
+# pip bekerja paling baik di dalam virtual environment (venv)
+# agar setiap proyek punya dependensi yang terpisah dan tidak saling bentrok.
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a short README section (as a multi-line string) explaining your project's setup steps using pip and venv.
+# Perintah pip dijalankan di TERMINAL, bukan di dalam file .py
 
+# -- INSTALASI --
+# pip install requests          → instal paket 'requests'
+# pip install requests==2.31.0  → instal versi tertentu
+# pip install -r requirements.txt → instal semua paket dari file
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# pip is the standard tool for installing the wider Python package ecosystem.
+# -- MENGHAPUS --
+# pip uninstall requests        → hapus paket
+
+# -- MELIHAT PAKET TERINSTAL --
+# pip list                      → tampilkan semua paket
+# pip show requests             → detail satu paket
+
+# -- MENYIMPAN DAFTAR PAKET --
+# pip freeze > requirements.txt → ekspor semua paket ke file
+
+# -- VIRTUAL ENVIRONMENT (sangat dianjurkan) --
+# python -m venv venv           → buat virtual environment
+# venv\Scripts\activate         → aktifkan (Windows)
+# source venv/bin/activate      → aktifkan (Mac/Linux)
+# deactivate                    → keluar dari virtual environment
+
+print("Contoh setup proyek Python baru:")
+print()
+print("1. python -m venv venv")
+print("2. venv\\Scripts\\activate  (Windows)")
+print("3. pip install requests")
+print("4. pip freeze > requirements.txt")
+
+# Contoh isi requirements.txt yang dihasilkan:
+readme = """
+# Cara menjalankan proyek ini:
+
+1. Buat virtual environment:
+   python -m venv venv
+
+2. Aktifkan virtual environment:
+   Windows : venv\\Scripts\\activate
+   Mac/Linux: source venv/bin/activate
+
+3. Instal semua dependensi:
+   pip install -r requirements.txt
+"""
+print(readme)
+
+# 3. RANGKUMAN
+
+# - pip digunakan untuk menginstal paket Python dari internet.
+# - Selalu gunakan virtual environment (venv) agar proyek tidak saling bentrok.
+# - Simpan daftar paket dengan: pip freeze > requirements.txt
+# - Instal ulang dari daftar dengan: pip install -r requirements.txt

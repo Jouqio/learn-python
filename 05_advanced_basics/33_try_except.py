@@ -1,51 +1,87 @@
-"""
-Topic: Exception Handling
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# try/except/else/finally handles runtime errors gracefully instead of crashing the program.
+# Exception adalah error yang terjadi saat program berjalan.
+# Tanpa penanganan, program akan langsung berhenti (crash).
+#
+# Struktur penanganan error:
+# try     → kode yang mungkin menyebabkan error
+# except  → jalankan ini jika error terjadi
+# else    → jalankan ini jika TIDAK ada error
+# finally → selalu dijalankan, ada error atau tidak
 
-# ============================================
-# 2. EXAMPLE
-# ============================================
+# 2. CONTOH
 
-def safe_divide(a, b):
+# try / except dasar
+try:
+    hasil = 10 / 0
+except ZeroDivisionError:
+    print("Tidak bisa membagi dengan nol.")
+
+# Menangkap beberapa jenis error sekaligus
+def konversi_angka(teks):
     try:
-        result = a / b
+        angka = int(teks)
+        hasil = 100 / angka
+    except ValueError:
+        print(f"'{teks}' bukan angka yang valid.")
+        return None
     except ZeroDivisionError:
-        print("Cannot divide by zero.")
+        print("Angka tidak boleh nol.")
         return None
     else:
-        return result
+        print("Konversi berhasil.")
+        return hasil
     finally:
-        print("Division attempt finished.")
+        print("Proses selesai.")  # selalu dijalankan
 
-print(safe_divide(10, 2))
-print(safe_divide(10, 0))
+print(konversi_angka("5"))    # berhasil
+print(konversi_angka("abc"))  # ValueError
+print(konversi_angka("0"))    # ZeroDivisionError
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Catch a ZeroDivisionError and print a friendly message.
-# EXERCISE 2 (easy): Catch a ValueError when converting invalid text to int.
-# EXERCISE 3 (easy): Use finally to always print a closing message regardless of errors.
-# EXERCISE 4 (medium): Raise a custom exception using `raise ValueError('message')`.
-# EXERCISE 5 (medium): Catch multiple exception types in one except clause using a tuple.
-#
-# Write your solutions below this line.
+# Menangkap beberapa error dalam satu baris
+try:
+    data = [1, 2, 3]
+    print(data[10])
+except (IndexError, KeyError) as e:
+    print(f"Error akses data: {e}")
 
+# raise — memunculkan error secara manual
+def cek_usia(usia):
+    if not isinstance(usia, int):
+        raise ValueError("Usia harus berupa angka bulat.")
+    if usia < 0:
+        raise ValueError("Usia tidak boleh negatif.")
+    return f"Usia valid: {usia} tahun"
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function `parse_age(text)` that raises a custom `InvalidAgeError` if the age is negative or not a number.
+try:
+    print(cek_usia(20))
+    print(cek_usia(-5))
+except ValueError as e:
+    print(f"Error: {e}")
 
+# Custom exception — membuat jenis error sendiri
+class ErrorUsiaTidakValid(Exception):
+    pass
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Exception handling keeps programs robust; catch specific exceptions rather than bare `except:`.
+def parse_usia(teks):
+    try:
+        usia = int(teks)
+    except ValueError:
+        raise ErrorUsiaTidakValid(f"'{teks}' bukan angka.")
+    if usia < 0:
+        raise ErrorUsiaTidakValid("Usia tidak boleh negatif.")
+    return usia
+
+try:
+    print(parse_usia("abc"))
+except ErrorUsiaTidakValid as e:
+    print(f"Usia tidak valid: {e}")
+
+# 3. RANGKUMAN
+
+# - Gunakan try/except agar program tidak crash saat terjadi error.
+# - Tangkap error yang spesifik (ZeroDivisionError, ValueError, dll),
+#   hindari except tanpa jenis error — terlalu luas dan menyembunyikan bug.
+# - else dijalankan jika tidak ada error, finally selalu dijalankan.
+# - Gunakan raise untuk memunculkan error secara manual.
+# - Buat custom exception dengan mewarisi kelas Exception.

@@ -1,41 +1,70 @@
-"""
-Topic: User Input
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# input() reads a line of text from the user; the result is always a string, so cast it when you need a number.
+# input() digunakan untuk meminta pengguna mengetik sesuatu.
+# Hasil dari input() SELALU berupa string (teks),
+# jadi harus dikonversi jika butuh angka.
 
-# ============================================
-# 2. EXAMPLE
-# ============================================
+# 2. CONTOH
 
-name = input("What is your name? ") if False else "Simulated User"
-print(f"Hello, {name}!")
-# In an interactive run, use: name = input("What is your name? ")
+# Catatan: kode di bawah ini akan meminta input saat dijalankan.
+# Jalankan file ini di terminal, bukan di run biasa jika IDE memblokir input.
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Ask the user for their age and print it back as an int.
-# EXERCISE 2 (easy): Ask for two numbers and print their sum (cast both to float).
-# EXERCISE 3 (easy): Validate input in a loop until the user enters a positive number.
-# EXERCISE 4 (medium): Ask for a yes/no answer and normalize it to lowercase before checking.
-# EXERCISE 5 (medium): Build a tiny interactive menu using input() and if/elif.
-#
-# Write your solutions below this line.
+# Input dasar
+nama = input("Siapa namamu? ")
+print(f"Halo, {nama}!")
 
+# Konversi input ke angka
+usia = int(input("Berapa umurmu? "))
+print(f"Tahun depan kamu berumur {usia + 1} tahun.")
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write an interactive program that keeps asking for numbers until the user types 'done', then prints their sum and average.
+# Konversi ke float
+nilai = float(input("Masukkan nilaimu: "))
+print(f"Nilaimu adalah {nilai:.1f}")
 
+# Menghitung dua angka dari input pengguna
+a = float(input("Angka pertama : "))
+b = float(input("Angka kedua   : "))
+print(f"Hasil penjumlahan: {a + b}")
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# input() always returns a string; validating and casting user input safely is essential for robust programs.
+# Input dengan validasi — ulangi sampai input valid
+while True:
+    teks = input("Masukkan angka positif: ")
+    try:
+        angka = float(teks)
+        if angka > 0:
+            break
+        print("Angka harus lebih dari nol.")
+    except ValueError:
+        print("Itu bukan angka. Coba lagi.")
+print(f"Angka yang kamu masukkan: {angka}")
+
+# Input pilihan ya/tidak
+jawaban = input("Lanjutkan? (ya/tidak): ").strip().lower()
+if jawaban == "ya":
+    print("Melanjutkan program...")
+else:
+    print("Program dihentikan.")
+
+# Menu sederhana interaktif
+print("\n=== MENU ===")
+print("1. Hitung luas persegi")
+print("2. Hitung keliling lingkaran")
+
+pilihan = input("Pilih menu (1/2): ")
+
+if pilihan == "1":
+    sisi = float(input("Masukkan panjang sisi: "))
+    print(f"Luas persegi: {sisi ** 2}")
+elif pilihan == "2":
+    import math
+    r = float(input("Masukkan jari-jari: "))
+    print(f"Keliling lingkaran: {2 * math.pi * r:.2f}")
+else:
+    print("Pilihan tidak tersedia.")
+
+# 3. RANGKUMAN
+
+# - input() selalu mengembalikan string — konversi dengan int() atau float() jika perlu.
+# - Gunakan .strip() untuk menghapus spasi di awal/akhir input.
+# - Gunakan .lower() agar perbandingan tidak sensitif huruf besar/kecil.
+# - Selalu validasi input pengguna dengan try/except atau kondisi if.

@@ -1,43 +1,69 @@
-"""
-Topic: Virtual Environments
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Virtual environments isolate a project's dependencies from the system Python and from other projects.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-print("python -m venv .venv          # create a virtual environment")
-print(".venv\\Scripts\\activate         # activate on Windows")
-print("source .venv/bin/activate       # activate on Linux/macOS")
-print("pip install -r requirements.txt # install project dependencies")
-print("deactivate                     # leave the virtual environment")
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Write the command to create a virtual environment named .venv.
-# EXERCISE 2 (easy): Write the activation command for your operating system.
-# EXERCISE 3 (easy): Write the command to freeze installed packages into requirements.txt.
-# EXERCISE 4 (medium): Explain why each project should have its own virtual environment.
-# EXERCISE 5 (medium): Write the command to deactivate the current virtual environment.
+# Virtual environment adalah folder terisolasi yang menyimpan
+# paket khusus untuk satu proyek saja.
 #
-# Write your solutions below this line.
+# Tanpa venv → semua proyek berbagi paket yang sama → bisa konflik
+# Dengan venv → setiap proyek punya paket sendiri → aman dan rapi
+#
+# Kapan butuh venv:
+# - Setiap kali memulai proyek Python baru
+# - Saat proyek butuh versi paket yang berbeda-beda
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a short setup guide (as a multi-line string) for a new contributor to this repository, from cloning to running the first script.
+# Semua perintah di bawah dijalankan di TERMINAL, bukan di dalam file .py
 
+# -- MEMBUAT DAN MENGAKTIFKAN --
+# python -m venv .venv              → buat virtual environment
+# .venv\Scripts\activate            → aktifkan (Windows)
+# source .venv/bin/activate         → aktifkan (Mac/Linux)
+# deactivate                        → keluar dari virtual environment
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Virtual environments prevent dependency conflicts between projects and keep your global Python clean.
+# -- MENGELOLA PAKET DI DALAM VENV --
+# pip install requests              → instal paket
+# pip freeze > requirements.txt     → simpan daftar paket
+# pip install -r requirements.txt   → instal dari daftar
+
+print("Panduan setup proyek Python dari awal:")
+print()
+print("1. Buat virtual environment  : python -m venv .venv")
+print("2. Aktifkan (Windows)        : .venv\\Scripts\\activate")
+print("3. Aktifkan (Mac/Linux)      : source .venv/bin/activate")
+print("4. Instal paket yang dibutuhkan: pip install -r requirements.txt")
+print("5. Selesai, mulai koding!")
+print()
+print("Jika mau keluar dari venv    : deactivate")
+
+# Panduan lengkap untuk kontributor baru
+panduan = """
+=== PANDUAN SETUP UNTUK KONTRIBUTOR BARU ===
+
+1. Clone repositori:
+   git clone https://github.com/username/nama-repo.git
+   cd nama-repo
+
+2. Buat virtual environment:
+   python -m venv .venv
+
+3. Aktifkan virtual environment:
+   Windows  : .venv\\Scripts\\activate
+   Mac/Linux: source .venv/bin/activate
+
+4. Instal semua dependensi:
+   pip install -r requirements.txt
+
+5. Jalankan skrip pertama:
+   python 01_fundamentals/01_home.py
+
+Selamat belajar!
+"""
+print(panduan)
+
+# 3. RANGKUMAN
+
+# - Gunakan venv di setiap proyek agar paket tidak saling bentrok.
+# - Buat dengan: python -m venv .venv
+# - Aktifkan sebelum install paket apa pun.
+# - Simpan daftar paket dengan: pip freeze > requirements.txt
+# - Tambahkan folder .venv ke dalam .gitignore — jangan di-commit.

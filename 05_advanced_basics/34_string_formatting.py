@@ -1,43 +1,56 @@
-"""
-Topic: String Formatting
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Python offers f-strings, .format(), and %-formatting; f-strings are the modern, preferred style.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-name = "Fajar"
-score = 87.5
-print(f"{name} scored {score:.1f} points")
-print("{} scored {:.1f} points".format(name, score))
-print("%s scored %.1f points" % (name, score))
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Format a float to 2 decimal places using an f-string.
-# EXERCISE 2 (easy): Pad a number with leading zeros using an f-string (e.g. 007).
-# EXERCISE 3 (easy): Right-align and left-align text within a fixed width using f-strings.
-# EXERCISE 4 (medium): Format a number with thousands separators (e.g. 1,000,000).
-# EXERCISE 5 (medium): Compare the same output built with f-string, .format(), and % styles.
+# Python punya tiga cara memformat string:
+# - f-string     → cara modern, paling disarankan (Python 3.6+)
+# - .format()    → cara lama, masih sering ditemui
+# - % formatting → cara paling lama, hindari untuk kode baru
 #
-# Write your solutions below this line.
+# Gunakan f-string untuk semua kode baru.
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function that formats a currency amount as 'Rp 1.234.567' style output.
+nama  = "Fajar"
+nilai = 87.5
 
+# Tiga cara menghasilkan output yang sama
+print(f"{nama} mendapat nilai {nilai:.1f}")               # f-string
+print("{} mendapat nilai {:.1f}".format(nama, nilai))     # .format()
+print("%s mendapat nilai %.1f" % (nama, nilai))           # % formatting
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# f-strings are the clearest, fastest, and most Pythonic way to format strings today.
+# -- F-STRING (disarankan) --
+
+# Desimal — mengatur jumlah angka di belakang koma
+harga = 19999.9
+print(f"Harga: {harga:.2f}")           # Harga: 19999.90
+
+# Pemisah ribuan
+populasi = 1500000
+print(f"Populasi: {populasi:,}")       # Populasi: 1,500,000
+
+# Padding — mengisi ruang kosong dengan angka atau spasi
+nomor = 7
+print(f"Nomor urut: {nomor:03d}")      # Nomor urut: 007
+
+# Perataan teks dalam lebar tertentu
+print(f"{'Kiri':<10}|{'Kanan':>10}")  # Kiri      |     Kanan
+print(f"{'Tengah':^10}")               #   Tengah
+
+# Ekspresi langsung di dalam f-string
+a, b = 5, 3
+print(f"{a} + {b} = {a + b}")          # 5 + 3 = 8
+print(f"Nama besar: {nama.upper()}")   # Nama besar: FAJAR
+
+# Contoh nyata: format mata uang Rupiah
+def format_rupiah(jumlah):
+    return f"Rp {jumlah:,.0f}".replace(",", ".")
+
+print(format_rupiah(1234567))   # Rp 1.234.567
+print(format_rupiah(50000))     # Rp 50.000
+
+# 3. RANGKUMAN
+
+# - Gunakan f-string: f"teks {variabel}" untuk semua kode baru.
+# - :.2f → 2 angka di belakang koma.
+# - :,   → pemisah ribuan otomatis.
+# - :03d → padding nol di depan angka.
+# - :<, :>, :^ → rata kiri, kanan, tengah dalam lebar tertentu.
