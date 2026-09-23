@@ -1,15 +1,17 @@
-# Python Learning Roadmap
+<h1 align="center">🐍 Python Learning </h1>
 
-Belajar Python dari **ZERO sampai ADVANCED** dengan pendekatan bertahap,
+<p align="center">
+  Belajar Python dari ZERO sampai ADVANCED dengan pendekatan bertahap dan project-based learning.
+</p>
 praktis, clean code, dan project-based learning. Kurikulum mengikuti urutan
 materi [W3Schools Python Tutorial](https://www.w3schools.com/python/) sebagai
-referensi struktur belajar — seluruh penjelasan, contoh kode, latihan, dan
+referensi struktur belajar seluruh penjelasan, contoh kode, latihan, dan
 mini project di repo ini ditulis ulang secara original.
 
 ## Tujuan
 Membangun pemahaman Python secara bertahap: dari variabel dan tipe data,
 sampai OOP, file handling, NumPy/Pandas/Matplotlib, machine learning dasar,
-database, dan Django — lalu menggabungkan semuanya dalam satu final project.
+database, dan Django lalu menggabungkan semuanya dalam satu final project.
 
 ## Prerequisites
 - Python 3.10 atau lebih baru (untuk fitur `match`)
@@ -18,8 +20,8 @@ database, dan Django — lalu menggabungkan semuanya dalam satu final project.
 
 ## Installation
 ```bash
-git clone <your-fork-or-copy-of-this-repo>
-cd python-learning-roadmap
+git clone <your-fork-or-copy-of-this-repo> 
+cd learn-python
 python -m venv .venv
 ```
 
@@ -65,19 +67,19 @@ python projects/final_project/main.py
 ```
 
 ## Learning Roadmap
-1. **Fundamentals** (`01_fundamentals/`) — syntax dasar sampai operator
-2. **Data Structures** (`02_data_structures/`) — list, tuple, set, dict
-3. **Control Flow** (`03_control_flow/`) — if/else, match, loop
+1. **Fundamentals** (`01_fundamentals/`) syntax dasar sampai operator
+2. **Data Structures** (`02_data_structures/`) list, tuple, set, dict
+3. **Control Flow** (`03_control_flow/`) if/else, match, loop
 4. **Functions** (`04_functions/`) — function, lambda, scope, module
-5. **Advanced Basics** (`05_advanced_basics/`) — datetime, json, regex, try/except, venv
-6. **OOP** (`06_oop/`) — class, inheritance, polymorphism, encapsulation
-7. **File Handling** (`07_file_handling/`) — baca/tulis/hapus file
-8. **Libraries** (`07_libraries/`) — NumPy, Pandas, SciPy, Matplotlib
-9. **Machine Learning** (`08_machine_learning/`) — statistik dasar sampai KNN
-10. **Database** (`09_database/`) — MySQL & MongoDB
-11. **Django** (`10_django/`) — pengenalan web framework
-12. **Mini Projects** (`mini_projects/`) — 15 proyek kecil bertahap
-13. **Final Project** (`projects/final_project/`) — Student Management System
+5. **Advanced Basics** (`05_advanced_basics/`) datetime, json, regex, try/except, venv
+6. **OOP** (`06_oop/`) class, inheritance, polymorphism, encapsulation
+7. **File Handling** (`07_file_handling/`) baca/tulis/hapus file
+8. **Libraries** (`07_libraries/`) NumPy, Pandas, SciPy, Matplotlib
+9. **Machine Learning** (`08_machine_learning/`) statistik dasar sampai KNN
+10. **Database** (`09_database/`) MySQL & MongoDB
+11. **Django** (`10_django/`) pengenalan web framework
+12. **Mini Projects** (`mini_projects/`) 15 proyek kecil bertahap
+13. **Final Project** (`projects/final_project/`) Student Management System
 
 ## Folder Structure
 ```
