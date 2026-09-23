@@ -1,47 +1,79 @@
-"""
-Topic: Subplots
-Level: Intermediate
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# plt.subplot() / plt.subplots() place multiple charts within one figure.
+# Subplot memungkinkan beberapa grafik ditampilkan dalam satu gambar (figure).
+# Berguna untuk membandingkan beberapa grafik yang saling berhubungan.
+#
+# Fungsi yang dipakai:
+# plt.subplots(baris, kolom) → membuat figure berisi beberapa grafik
+#
+# Hasilnya ada dua:
+# fig  → figure (kanvas utama)
+# axes → daftar area grafik, diakses dengan indeks
+#
+# Parameter dan fungsi tambahan:
+# sharey=True       → semua grafik memakai sumbu y yang sama
+# plt.tight_layout() → merapikan jarak antar grafik
 
-# ============================================
-# 2. EXAMPLE
-# ============================================
+# 2. CONTOH
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+x = [1, 2, 3]
+
+# Dua grafik berdampingan
 fig, axes = plt.subplots(1, 2)
-axes[0].plot([1, 2, 3], [1, 2, 3])
-axes[1].plot([1, 2, 3], [3, 2, 1])
-fig.savefig("plot_subplot.png")
-print("Saved plot_subplot.png")
+axes[0].plot(x, [1, 2, 3])
+axes[1].plot(x, [3, 2, 1])
+fig.savefig("plot_subplot_dua.png")
+plt.close(fig)
+print("plot_subplot_dua.png disimpan.")
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Create a figure with 2 side-by-side subplots.
-# EXERCISE 2 (easy): Create a figure with a 2x2 grid of subplots.
-# EXERCISE 3 (easy): Give each subplot its own title.
-# EXERCISE 4 (medium): Share the y-axis between two subplots using sharey=True.
-# EXERCISE 5 (medium): Adjust spacing between subplots using plt.tight_layout().
-#
-# Write your solutions below this line.
+# Empat grafik dalam susunan 2x2
+fig, axes = plt.subplots(2, 2)
+axes[0, 0].plot(x, [1, 2, 3])
+axes[0, 1].plot(x, [3, 2, 1])
+axes[1, 0].plot(x, [2, 4, 6])
+axes[1, 1].plot(x, [6, 4, 2])
+fig.savefig("plot_subplot_2x2.png")
+plt.close(fig)
+print("plot_subplot_2x2.png disimpan.")
 
+# Judul untuk setiap grafik
+fig, axes = plt.subplots(1, 2)
+axes[0].plot(x, [1, 2, 3])
+axes[0].set_title("Naik")
+axes[1].plot(x, [3, 2, 1])
+axes[1].set_title("Turun")
+fig.savefig("plot_subplot_judul.png")
+plt.close(fig)
+print("plot_subplot_judul.png disimpan.")
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function that plots 4 related datasets as a 2x2 dashboard of subplots in one saved image.
+# Berbagi sumbu y antar grafik
+fig, axes = plt.subplots(1, 2, sharey=True)
+axes[0].plot(x, [10, 20, 30])
+axes[0].set_title("Data A")
+axes[1].plot(x, [15, 25, 35])
+axes[1].set_title("Data B")
+fig.savefig("plot_subplot_sharey.png")
+plt.close(fig)
+print("plot_subplot_sharey.png disimpan.")
 
+# Merapikan jarak dengan tight_layout
+fig, axes = plt.subplots(1, 2)
+axes[0].plot(x, [1, 2, 3])
+axes[0].set_title("Grafik Pertama")
+axes[1].plot(x, [3, 2, 1])
+axes[1].set_title("Grafik Kedua")
+fig.tight_layout()
+fig.savefig("plot_subplot_rapi.png")
+plt.close(fig)
+print("plot_subplot_rapi.png disimpan.")
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Subplots let you compare multiple related charts within a single figure.
+# 3. RANGKUMAN
+
+# - plt.subplots(baris, kolom) membuat beberapa grafik dalam satu figure.
+# - axes[0], axes[1] dipakai untuk grafik 1 baris; axes[baris, kolom] untuk susunan 2D.
+# - set_title() memberi judul pada masing-masing grafik.
+# - sharey=True membuat sumbu y sama, tight_layout() merapikan jarak antar grafik.

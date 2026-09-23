@@ -1,47 +1,85 @@
-"""
-Topic: Plotting X and Y Points
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# plt.plot(x, y) draws lines/points connecting the given coordinate pairs.
+# plt.plot(x, y) menggambar garis atau titik yang menghubungkan
+# pasangan koordinat (x, y) yang diberikan.
+#
+# Format dasar:
+# - plt.plot(x, y)        → garis yang menghubungkan titik-titik
+# - plt.plot(x, y, "o")   → hanya titik, tanpa garis
+# - plt.plot(x, y, "o-")  → titik sekaligus garis
 
-# ============================================
-# 2. EXAMPLE
-# ============================================
+# 2. CONTOH
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-x_points = [1, 3, 5, 7]
-y_points = [2, 6, 4, 8]
-plt.plot(x_points, y_points)
+# Plot garis dasar dengan koordinat x dan y
+x = [1, 3, 5, 7]
+y = [2, 6, 4, 8]
+
+plt.plot(x, y)
+plt.title("Plot Garis Dasar")
+plt.xlabel("Sumbu X")
+plt.ylabel("Sumbu Y")
 plt.savefig("plot_xy.png")
-print("Saved plot_xy.png")
+plt.clf()
+print("plot_xy.png disimpan.")
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Plot 5 custom (x, y) pairs.
-# EXERCISE 2 (easy): Plot only points (no connecting line) using a marker string.
-# EXERCISE 3 (easy): Plot two datasets on the same chart with a legend.
-# EXERCISE 4 (medium): Plot a single point using plt.plot(x, y, 'o').
-# EXERCISE 5 (medium): Label each axis and add a title to your x-y plot.
-#
-# Write your solutions below this line.
+# Hanya titik — tanpa garis penghubung
+plt.plot(x, y, "o")   # "o" = lingkaran di setiap titik
+plt.title("Plot Titik Saja")
+plt.savefig("plot_titik.png")
+plt.clf()
+print("plot_titik.png disimpan.")
 
+# Titik sekaligus garis
+plt.plot(x, y, "o-")
+plt.title("Plot Titik dan Garis")
+plt.savefig("plot_titik_garis.png")
+plt.clf()
+print("plot_titik_garis.png disimpan.")
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function that plots a mathematical function (e.g. y = x^2) over a given x range.
+# Satu titik tunggal
+plt.plot(3, 5, "o")
+plt.title("Satu Titik")
+plt.savefig("plot_satu_titik.png")
+plt.clf()
+print("plot_satu_titik.png disimpan.")
 
+# Dua dataset dalam satu grafik
+x1 = [1, 2, 3, 4, 5]
+y1 = [1, 4, 9, 16, 25]   # y = x²
+y2 = [1, 2, 3, 4, 5]     # y = x
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Understanding x/y point plotting is the foundation for every other chart type in matplotlib.
+plt.plot(x1, y1, label="y = x²")
+plt.plot(x1, y2, label="y = x")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("Perbandingan Dua Fungsi")
+plt.legend()
+plt.savefig("plot_dua_dataset.png")
+plt.clf()
+print("plot_dua_dataset.png disimpan.")
+
+# Fungsi matematika — plot y = x² dalam rentang tertentu
+def plot_fungsi(x_awal, x_akhir, nama_file):
+    x = list(range(x_awal, x_akhir + 1))
+    y = [n ** 2 for n in x]
+    plt.plot(x, y)
+    plt.title(f"y = x² (x dari {x_awal} sampai {x_akhir})")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.savefig(nama_file)
+    plt.clf()
+    print(f"{nama_file} disimpan.")
+
+plot_fungsi(0, 10, "plot_kuadrat.png")
+
+# 3. RANGKUMAN
+
+# - plt.plot(x, y) menggambar garis yang menghubungkan titik koordinat.
+# - Tambahkan "o" untuk hanya menampilkan titik tanpa garis.
+# - Tambahkan "o-" untuk titik sekaligus garis.
+# - Dua plt.plot() sebelum savefig() menghasilkan dua garis dalam satu grafik.
+# - Gunakan plt.legend() untuk memberi keterangan setiap garis.

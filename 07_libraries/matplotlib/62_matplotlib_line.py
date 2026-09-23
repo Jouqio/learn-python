@@ -1,45 +1,70 @@
-"""
-Topic: Line Styles
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Line style, width, and color can all be customized (linestyle, linewidth, color).
+# Gaya garis (line style) mengatur tampilan garis pada grafik.
+# Ada tiga hal yang bisa diubah: bentuk garis, warna, dan ketebalan.
+#
+# Parameter yang sering dipakai:
+# linestyle → bentuk garis
+# color     → warna garis
+# linewidth → ketebalan garis
+#
+# Jenis linestyle yang sering dipakai:
+# "solid"   atau "-"   → garis biasa (bawaan)
+# "dashed"  atau "--"  → garis putus-putus
+# "dotted"  atau ":"   → garis titik-titik
+# "dashdot" atau "-."  → garis putus-titik
 
-# ============================================
-# 2. EXAMPLE
-# ============================================
+# 2. CONTOH
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-plt.plot([1, 2, 3, 4], linestyle="dashed", color="red", linewidth=2)
-plt.savefig("plot_line.png")
-print("Saved plot_line.png")
+y = [1, 2, 3, 4]
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Plot a dashed line.
-# EXERCISE 2 (easy): Plot a line with a custom color.
-# EXERCISE 3 (easy): Plot a line with increased width.
-# EXERCISE 4 (medium): Combine linestyle, color, and linewidth in one plot call.
-# EXERCISE 5 (medium): Plot two lines with different styles on the same chart to compare them.
-#
-# Write your solutions below this line.
+# Garis putus-putus
+plt.plot(y, linestyle="dashed")
+plt.title("Garis Putus-putus")
+plt.savefig("plot_line_dashed.png")
+plt.clf()
+print("plot_line_dashed.png disimpan.")
 
+# Mengubah warna garis
+plt.plot(y, color="red")
+plt.title("Garis Merah")
+plt.savefig("plot_line_warna.png")
+plt.clf()
+print("plot_line_warna.png disimpan.")
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function that plots actual vs predicted values using two distinct line styles for easy comparison.
+# Mengubah ketebalan garis
+plt.plot(y, linewidth=5)
+plt.title("Garis Tebal")
+plt.savefig("plot_line_tebal.png")
+plt.clf()
+print("plot_line_tebal.png disimpan.")
 
+# Menggabungkan linestyle, color, dan linewidth
+plt.plot(y, linestyle="dashed", color="red", linewidth=2)
+plt.title("Gaya Garis Gabungan")
+plt.savefig("plot_line_gabungan.png")
+plt.clf()
+print("plot_line_gabungan.png disimpan.")
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Line style customization makes multi-series charts easier to read and compare.
+# Dua garis dengan gaya berbeda dalam satu grafik
+nilai_asli = [3, 5, 2, 7]
+nilai_prediksi = [4, 4, 3, 6]
+
+plt.plot(nilai_asli, linestyle="solid", color="blue", label="Asli")
+plt.plot(nilai_prediksi, linestyle="dashed", color="red", label="Prediksi")
+plt.title("Perbandingan Dua Garis")
+plt.legend()
+plt.savefig("plot_line_perbandingan.png")
+plt.clf()
+print("plot_line_perbandingan.png disimpan.")
+
+# 3. RANGKUMAN
+
+# - linestyle mengatur bentuk garis: "solid", "dashed", "dotted", "dashdot".
+# - color mengatur warna garis.
+# - linewidth mengatur ketebalan garis.
+# - Gaya garis yang berbeda membantu membedakan beberapa garis dalam satu grafik.
