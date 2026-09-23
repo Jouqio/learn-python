@@ -1,12 +1,5 @@
-# ============================================
-# Topik : Modul (Modules)
-# Level : Pemula
-# ============================================
-
-
-# ============================================
 # 1. KONSEP
-# ============================================
+
 # Modul adalah file .py yang berisi kode yang bisa diimpor dan digunakan
 # di file lain. Python sudah menyediakan banyak modul bawaan (standard library)
 # yang siap pakai tanpa perlu instalasi tambahan.
