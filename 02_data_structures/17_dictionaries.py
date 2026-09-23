@@ -1,42 +1,64 @@
-"""
-Topic: Dictionaries
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Dictionaries store key-value pairs. Keys must be unique and hashable; values can be any type.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-student = {"name": "Bagas", "age": 22, "major": "Computer Science"}
-student["gpa"] = 3.7
-for key, value in student.items():
-    print(f"{key}: {value}")
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Create a dictionary describing a book (title, author, year).
-# EXERCISE 2 (easy): Update a value in a dictionary and add a new key.
-# EXERCISE 3 (easy): Loop over a dictionary's keys, values, and items separately.
-# EXERCISE 4 (medium): Use .get() with a default value to avoid a KeyError.
-# EXERCISE 5 (medium): Merge two dictionaries into one.
+# Dictionary menyimpan data dalam bentuk pasangan kunci-nilai (key: value).
+# Ditulis dengan tanda kurung kurawal: {"kunci": "nilai"}
 #
-# Write your solutions below this line.
+# Sifat dictionary:
+# - Kunci harus unik — tidak boleh ada kunci yang sama
+# - Nilai bisa berupa tipe data apa saja
+# - Berurutan (sejak Python 3.7+)
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function that counts word frequency in a sentence using a dictionary.
+# Membuat dictionary
+siswa = {"nama": "Bagas", "usia": 22, "jurusan": "Teknik Informatika"}
+print(siswa)
 
+# Mengakses nilai lewat kunci
+print(siswa["nama"])   # Bagas
+print(siswa["usia"])   # 22
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Dictionaries are Python's core key-value structure and power much of real-world data handling.
+# Menggunakan .get() — aman, tidak error jika kunci tidak ada
+print(siswa.get("ipk", "belum tersedia"))  # belum tersedia
+
+# Menambah dan mengubah nilai
+siswa["ipk"] = 3.7       # tambah kunci baru
+siswa["usia"] = 23       # ubah nilai yang sudah ada
+print(siswa)
+
+# Menghapus item
+del siswa["usia"]
+print(siswa)
+
+# Mengecek keberadaan kunci
+print("nama" in siswa)    # True
+print("usia" in siswa)    # False
+
+# Iterasi dictionary
+for kunci, nilai in siswa.items():
+    print(f"{kunci}: {nilai}")
+
+# Hanya kunci atau hanya nilai
+print(list(siswa.keys()))    # ['nama', 'jurusan', 'ipk']
+print(list(siswa.values()))  # ['Bagas', 'Teknik Informatika', 3.7]
+
+# Menggabungkan dua dictionary
+ekstra = {"angkatan": 2022, "aktif": True}
+siswa.update(ekstra)
+print(siswa)
+
+# Contoh nyata: menghitung frekuensi kata
+kalimat = "belajar python itu seru dan python itu mudah"
+frekuensi = {}
+
+for kata in kalimat.split():
+    frekuensi[kata] = frekuensi.get(kata, 0) + 1
+
+print(frekuensi)
+
+# 3. RANGKUMAN
+
+# - Dictionary menyimpan pasangan kunci-nilai: {"kunci": "nilai"}
+# - Gunakan .get() untuk mengakses nilai dengan aman (tidak error).
+# - Gunakan .update() untuk menggabungkan dua dictionary.
+# - Iterasi dengan .items() untuk mengakses kunci dan nilai sekaligus.

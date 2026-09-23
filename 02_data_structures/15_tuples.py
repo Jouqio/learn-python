@@ -1,43 +1,54 @@
-"""
-Topic: Tuples
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Tuples are ordered, immutable collections, often used for fixed groups of values or unpacking.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-coordinates = (10, 20)
-x, y = coordinates
-print(f"x={x}, y={y}")
-person = ("Dewi", 30, "Engineer")
-print(person[1])
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Create a tuple with 3 values and unpack it into 3 variables.
-# EXERCISE 2 (easy): Try to modify a tuple element and observe the error.
-# EXERCISE 3 (easy): Convert a tuple to a list, modify it, then convert back.
-# EXERCISE 4 (medium): Return multiple values from a function as a tuple.
-# EXERCISE 5 (medium): Use tuple unpacking inside a for loop over a list of tuples.
+# Tuple mirip dengan list, tapi nilainya TIDAK BISA diubah setelah dibuat.
+# Ditulis dengan tanda kurung biasa: (item1, item2, item3)
 #
-# Write your solutions below this line.
+# Kapan pakai tuple:
+# - Data yang tidak boleh berubah (koordinat, konfigurasi, dll.)
+# - Mengembalikan beberapa nilai dari sebuah fungsi
+# - Unpacking — membagi isi tuple ke beberapa variabel sekaligus
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function that returns (min, max, average) of a list of numbers as a tuple.
+# Membuat tuple
+koordinat = (10, 20)
+print(koordinat)
+print(koordinat[0])  # 10
+print(koordinat[1])  # 20
 
+# Unpacking — membagi isi tuple ke variabel terpisah
+x, y = koordinat
+print(f"x={x}, y={y}")
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Tuples signal 'this data shouldn't change' and are handy for multiple return values.
+# Tuple bisa berisi tipe data berbeda
+profil = ("Dewi", 30, "Engineer")
+nama, usia, pekerjaan = profil
+print(f"{nama}, {usia} tahun, {pekerjaan}")
+
+# Tuple tidak bisa diubah — baris ini akan error jika dijalankan:
+# koordinat[0] = 99  # TypeError: 'tuple' object does not support item assignment
+
+# Konversi tuple ↔ list jika perlu diubah sementara
+sebagai_list = list(koordinat)
+sebagai_list.append(30)
+koordinat_baru = tuple(sebagai_list)
+print(koordinat_baru)  # (10, 20, 30)
+
+# Mengembalikan beberapa nilai dari fungsi (otomatis jadi tuple)
+def statistik(data):
+    return min(data), max(data), sum(data) / len(data)
+
+nilai_min, nilai_max, rata_rata = statistik([4, 8, 15, 16, 23])
+print(f"Min: {nilai_min}, Max: {nilai_max}, Rata-rata: {rata_rata}")
+
+# Unpacking dalam for loop
+daftar_siswa = [("Andi", 90), ("Budi", 85), ("Cici", 92)]
+for nama, nilai in daftar_siswa:
+    print(f"{nama} mendapat nilai {nilai}")
+
+# 3. RANGKUMAN
+
+# - Tuple seperti list tapi tidak bisa diubah setelah dibuat.
+# - Gunakan unpacking untuk membagi isi tuple ke beberapa variabel.
+# - Fungsi bisa mengembalikan beberapa nilai sekaligus lewat tuple.
+# - Konversi ke list dulu jika perlu mengubah isinya.
