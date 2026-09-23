@@ -1,49 +1,68 @@
-"""
-Topic: While Loops
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# while loops repeat a block as long as a condition is True. Use break/continue to control flow.
+# While loop mengulangi sebuah blok kode selama kondisinya True.
+# Berbeda dengan for loop, while digunakan saat jumlah
+# perulangan tidak diketahui sejak awal.
+#
+# Kata kunci tambahan:
+# - break    → keluar dari loop sebelum kondisi selesai
+# - continue → lewati iterasi ini, langsung ke iterasi berikutnya
 
-# ============================================
-# 2. EXAMPLE
-# ============================================
+# 2. CONTOH
 
-count = 0
-while count < 5:
-    print(f"count = {count}")
-    count += 1
+# While dasar — cetak angka 1 sampai 5
+hitung = 1
+while hitung <= 5:
+    print(f"hitung = {hitung}")
+    hitung += 1  # wajib diubah agar tidak infinite loop
 
+# break — keluar dari loop saat kondisi tertentu terpenuhi
 n = 10
 while n > 0:
     if n == 5:
-        break
+        break   # berhenti saat n bernilai 5
     n -= 1
-print("Loop ended at", n)
+print(f"Loop berhenti di n = {n}")  # 5
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Print numbers 1 to 10 using a while loop.
-# EXERCISE 2 (easy): Use `continue` to skip printing multiples of 3 in a while loop.
-# EXERCISE 3 (easy): Write a while loop that keeps halving a number until it's less than 1.
-# EXERCISE 4 (medium): Simulate a simple countdown timer (without real time delay).
-# EXERCISE 5 (medium): Write a while True loop that breaks when a sentinel condition is met.
-#
-# Write your solutions below this line.
+# continue — lewati iterasi tertentu, lanjut ke berikutnya
+angka = 0
+while angka < 10:
+    angka += 1
+    if angka % 3 == 0:
+        continue  # lewati kelipatan 3
+    print(angka)  # cetak semua kecuali 3, 6, 9
 
+# Mengurangi nilai terus sampai batas tertentu
+nilai = 100
+while nilai > 1:
+    nilai /= 2  # dibagi 2 setiap iterasi
+print(f"Nilai akhir: {round(nilai, 4)}")
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a number-guessing loop (no real input needed) that decreases a 'max attempts' counter and stops at 0 or on success.
+# Contoh nyata: simulasi hitung mundur
+hitungan = 5
+while hitungan > 0:
+    print(f"Mulai dalam {hitungan}...")
+    hitungan -= 1
+print("Mulai!")
 
+# while True — loop tanpa batas, dihentikan manual dengan break
+percobaan = 3
+tebakan   = 7   # anggap ini input pengguna
+jawaban   = 7
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# while loops are best when the number of iterations is not known in advance.
+while True:
+    if tebakan == jawaban:
+        print("Tebakan benar!")
+        break
+    percobaan -= 1
+    if percobaan == 0:
+        print("Kesempatan habis.")
+        break
+
+# 3. RANGKUMAN
+
+# - while mengulang kode selama kondisinya True.
+# - Pastikan ada perubahan nilai agar tidak terjadi infinite loop.
+# - break menghentikan loop lebih awal.
+# - continue melewati iterasi saat ini dan lanjut ke berikutnya.
+# - while True digunakan saat loop harus jalan terus sampai kondisi break terpenuhi.

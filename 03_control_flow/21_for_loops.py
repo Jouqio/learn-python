@@ -1,44 +1,56 @@
-"""
-Topic: For Loops
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# for loops iterate over sequences (lists, strings, ranges, dicts). Combine with range(), enumerate(), and zip().
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-for i in range(1, 6):
-    print(i)
-
-names = ["Andi", "Bella", "Citra"]
-for index, name in enumerate(names, start=1):
-    print(f"{index}. {name}")
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Print the numbers 1 to 20 using range().
-# EXERCISE 2 (easy): Loop over a string and print each character on its own line.
-# EXERCISE 3 (easy): Use enumerate() to number items in a list starting at 1.
-# EXERCISE 4 (medium): Use zip() to pair two lists (names and scores) together.
-# EXERCISE 5 (medium): Sum all numbers from 1 to 100 using a for loop.
+# For loop digunakan untuk mengulang kode sejumlah item
+# dalam sebuah urutan (list, string, range, dictionary, dll.).
 #
-# Write your solutions below this line.
+# Berbeda dengan while, for digunakan saat jumlah
+# perulangan sudah diketahui atau mengikuti panjang data.
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function that prints a multiplication table (1-10) using nested for loops.
+# For dengan range() — mengulang sejumlah angka
+for i in range(1, 6):
+    print(i)  # 1 2 3 4 5
 
+# range(awal, akhir, langkah)
+for i in range(0, 10, 2):
+    print(i)  # 0 2 4 6 8
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# for loops are the most common way to process sequences item by item in Python.
+# For dengan list
+buah = ["apel", "pisang", "ceri"]
+for item in buah:
+    print(item)
+
+# For dengan string — setiap karakter diiterasi satu per satu
+for huruf in "Python":
+    print(huruf)
+
+# enumerate() — mengakses indeks dan nilai sekaligus
+nama = ["Andi", "Bella", "Citra"]
+for nomor, n in enumerate(nama, start=1):
+    print(f"{nomor}. {n}")
+
+# zip() — menggabungkan dua list secara bersamaan
+siswa = ["Andi", "Bella", "Citra"]
+nilai  = [90, 85, 92]
+for n, v in zip(siswa, nilai):
+    print(f"{n}: {v}")
+
+# For dengan dictionary
+profil = {"nama": "Bagas", "usia": 22, "kota": "Bontang"}
+for kunci, nilai in profil.items():
+    print(f"{kunci}: {nilai}")
+
+# Nested for loop — loop di dalam loop
+for baris in range(1, 4):
+    for kolom in range(1, 4):
+        print(f"{baris}x{kolom}={baris*kolom}", end="  ")
+    print()  # baris baru setiap baris selesai
+
+# 3. RANGKUMAN
+
+# - for mengulang kode untuk setiap item dalam urutan.
+# - range(awal, akhir, langkah) menghasilkan urutan angka.
+# - enumerate() memberikan nomor urut otomatis saat iterasi.
+# - zip() menggabungkan dua list menjadi pasangan.
+# - Nested for loop digunakan untuk data dua dimensi seperti tabel.
