@@ -1,11 +1,17 @@
-<h1 align="center">🐍 Python Learning </h1>
+<h1 align="center">🐍 Python Learning</h1>
 
 <p align="center">
   Belajar Python dari ZERO sampai ADVANCED dengan pendekatan bertahap dan project-based learning.
 </p>
-praktis, clean code, dan project-based learning. Kurikulum mengikuti urutan
-materi [W3Schools Python Tutorial](https://www.w3schools.com/python/) sebagai
-referensi struktur belajar seluruh penjelasan, contoh kode, latihan, dan
+
+<p align="center">
+  <b>Nama:</b> Syauqi Nuzul Adbi &nbsp;|&nbsp; <b>NIM:</b> 202512042
+</p>
+
+---
+
+Kurikulum mengikuti urutan materi [W3Schools Python Tutorial](https://www.w3schools.com/python/)
+sebagai referensi struktur belajar seluruh penjelasan, contoh kode, latihan, dan
 mini project di repo ini ditulis ulang secara original.
 
 ## Tujuan
