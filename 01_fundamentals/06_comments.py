@@ -1,42 +1,31 @@
-"""
-Topic: Comments
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Comments (#) are ignored by Python and should explain WHY, not restate obvious code.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-# Using a constant instead of a magic number improves readability
-TAX_RATE = 0.11
-price = 100
-print(price + price * TAX_RATE)
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Add a comment above a line of code explaining a non-obvious decision.
-# EXERCISE 2 (easy): Turn a line of working code into a comment (temporarily disable it).
-# EXERCISE 3 (easy): Write a multi-line comment using multiple # lines.
-# EXERCISE 4 (medium): Write a docstring-style comment (triple-quoted string) at the top of a script.
-# EXERCISE 5 (medium): Identify and remove 3 'noise' comments from a snippet you write that just restate the code.
+# Komentar adalah teks yang diabaikan oleh Python saat kode dijalankan.
+# Gunakan komentar untuk menjelaskan MENGAPA, bukan mengulang apa yang sudah jelas dari kode.
 #
-# Write your solutions below this line.
+# Cara menulis komentar:
+# - Satu baris  → gunakan tanda #
+# - Banyak baris → gunakan beberapa baris # berturut-turut
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Take a 10-line script and add exactly the comments that are useful (not more, not less), justifying each one in a print statement.
+# Tarif pajak Indonesia (PPN 11%) — nilai ini ditetapkan pemerintah
+TARIF_PAJAK = 0.11
 
+harga = 100
+total = harga + harga * TARIF_PAJAK
+print(total)  # Output: 111.0
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Good comments explain intent and reasoning; unnecessary comments add noise instead of clarity.
+# Komentar banyak baris:
+# Program ini menghitung total harga setelah pajak.
+# Tarif pajak bisa berubah, jadi disimpan sebagai konstanta
+# agar mudah diubah di satu tempat saja.
+
+# Baris ini dinonaktifkan sementara (di-comment):
+# print("Baris ini tidak akan dijalankan")
+
+# 3. RANGKUMAN
+
+# - Komentar ditulis dengan tanda # di awal baris.
+# - Komentar yang baik menjelaskan alasan, bukan mengulang kode.
+# - Komentar yang tidak perlu justru membuat kode lebih sulit dibaca.

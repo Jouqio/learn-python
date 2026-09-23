@@ -1,41 +1,28 @@
-"""
-Topic: Python Syntax
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Python uses indentation (not braces) to define blocks of code. Consistent indentation (4 spaces) is required and enforced.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-if True:
-    print("This line is inside the if-block because it is indented.")
-print("This line is outside the if-block.")
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Write an if-block that prints 2 indented lines.
-# EXERCISE 2 (easy): Write code that intentionally mixes tabs and spaces, run it, and observe the error.
-# EXERCISE 3 (easy): Print the indentation level (in spaces) that PEP 8 recommends.
-# EXERCISE 4 (medium): Write a nested if-block (if inside if) with correct indentation.
-# EXERCISE 5 (medium): Rewrite a badly indented snippet (given by you) into correctly indented code.
+# Python menggunakan indentasi (spasi) untuk menentukan blok kode,
+# bukan kurung kurawal seperti bahasa lain.
 #
-# Write your solutions below this line.
+# Aturan indentasi Python:
+# - Gunakan 4 spasi (bukan tab)
+# - Indentasi yang tidak konsisten akan menyebabkan error
 
+# 2. CONTOH
+# Blok if — baris dalam blok harus diindentasi
+if True:
+    print("Baris ini ada DI DALAM blok if (diindentasi).")
+print("Baris ini ada DI LUAR blok if (tidak diindentasi).")
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function containing 3 levels of nested indentation (function -> if -> for) that still runs correctly.
+# Contoh nested (blok bersarang)
+nilai = 85
 
+if nilai >= 70:
+    print("Kamu lulus.")
+    if nilai >= 90:
+        print("Luar biasa, nilaimu sangat tinggi!")
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Indentation in Python is not just style — it defines the structure of your program.
+# 3. RANGKUMAN
+
+# - Indentasi di Python bukan sekadar gaya — ini adalah aturan wajib.
+# - Gunakan 4 spasi untuk setiap level blok kode.
+# - Indentasi yang salah akan langsung menghasilkan error saat dijalankan.

@@ -1,42 +1,46 @@
-"""
-Topic: Type Casting
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Casting converts a value from one type to another using int(), float(), str(), bool(), etc.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-age_text = "25"
-age_number = int(age_text)
-print(age_number + 5)
-print(str(age_number) + " years old")
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Convert the string '42' to an int and add 8 to it.
-# EXERCISE 2 (easy): Convert a float to a string and concatenate it with text.
-# EXERCISE 3 (easy): Convert '3.14' to a float, then to an int, and print both results.
-# EXERCISE 4 (medium): Write code that safely casts user input to int using try/except.
-# EXERCISE 5 (medium): Cast a list of number-strings into a list of ints using a loop.
+# Konversi tipe data adalah mengubah nilai dari satu tipe ke tipe lain.
 #
-# Write your solutions below this line.
+# Fungsi yang digunakan:
+# - int()   → mengubah ke bilangan bulat
+# - float() → mengubah ke bilangan desimal
+# - str()   → mengubah ke teks
+# - bool()  → mengubah ke True/False
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function `safe_int(value, default=0)` that tries to cast to int and returns a default if casting fails.
+# str ke int — sering terjadi saat memproses input pengguna
+usia_teks = "25"
+usia_angka = int(usia_teks)
+print(usia_angka + 5)          # 30
+print(str(usia_angka) + " tahun")  # 25 tahun
 
+# str ke float
+nilai_teks = "3.14"
+nilai_float = float(nilai_teks)
+print(nilai_float)             # 3.14
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Casting bridges Python's dynamic types; always validate input before casting to avoid crashes.
+# float ke int — angka di belakang koma dipotong
+print(int(9.99))               # 9
+
+# int ke bool
+print(bool(0))    # False
+print(bool(1))    # True
+print(bool(99))   # True
+
+# Konversi aman dengan try/except
+# (mencegah program crash jika nilai tidak bisa dikonversi)
+teks = "abc"
+try:
+    angka = int(teks)
+except ValueError:
+    angka = 0
+print(angka)  # 0
+
+# 3. RANGKUMAN
+
+# - Gunakan int(), float(), str(), bool() untuk mengubah tipe data.
+# - float ke int memotong desimal, bukan membulatkan.
+# - Gunakan try/except saat mengonversi input dari pengguna
+#   agar program tidak crash jika nilainya tidak valid.

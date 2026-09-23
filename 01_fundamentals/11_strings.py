@@ -1,43 +1,52 @@
-"""
-Topic: Strings
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Strings are immutable sequences of characters. They support slicing, methods like .upper(), .strip(), .split(), and f-string formatting.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-greeting = "  Hello, Python learners!  "
-print(greeting.strip().upper())
-print(greeting.strip().split(","))
-name = "Rafi"
-print(f"Hi, {name}! Your name has {len(name)} letters.")
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Reverse a string using slicing.
-# EXERCISE 2 (easy): Count how many times a letter appears in a string using .count().
-# EXERCISE 3 (easy): Split a sentence into words and print the word count.
-# EXERCISE 4 (medium): Check if a string starts and ends with specific characters using .startswith()/.endswith().
-# EXERCISE 5 (medium): Build a formatted report line using an f-string with at least 2 variables.
+# String adalah urutan karakter yang diapit tanda kutip.
+# String bersifat immutable — nilainya tidak bisa diubah langsung,
+# tapi bisa dibuat string baru dari hasilnya.
 #
-# Write your solutions below this line.
+# Yang bisa dilakukan dengan string:
+# - Slicing (mengambil sebagian karakter)
+# - Method bawaan: .upper(), .lower(), .strip(), .split(), dll.
+# - f-string untuk menyisipkan variabel ke dalam teks
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function that checks if a string is a palindrome, ignoring case and spaces.
+# Membuat string
+salam = "  Halo, Pelajar Python!  "
 
+# Method dasar
+print(salam.strip())          # hapus spasi di kiri & kanan
+print(salam.strip().upper())  # ubah ke huruf besar
+print(salam.strip().lower())  # ubah ke huruf kecil
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Strings are one of the most-used types in Python; mastering slicing and string methods pays off constantly.
+# split() — memecah string menjadi list
+print(salam.strip().split(","))  # ['Halo', ' Pelajar Python!']
+
+# len() — menghitung panjang string
+nama = "Rafi"
+print(len(nama))  # 4
+
+# f-string — menyisipkan variabel ke dalam teks
+print(f"Halo, {nama}! Namamu terdiri dari {len(nama)} huruf.")
+
+# Slicing — mengambil sebagian karakter
+teks = "Python"
+print(teks[0])     # P        (karakter pertama)
+print(teks[-1])    # n        (karakter terakhir)
+print(teks[0:3])   # Pyt      (indeks 0 sampai 2)
+print(teks[::-1])  # nohtyP   (dibalik)
+
+# Method lain yang sering dipakai
+kalimat = "belajar python itu menyenangkan"
+print(kalimat.count("a"))          # hitung huruf 'a'
+print(kalimat.startswith("belajar"))  # True
+print(kalimat.endswith("kan"))        # True
+print(kalimat.replace("python", "Python"))  # ganti kata
+
+# 3. RANGKUMAN
+
+# - String diapit tanda kutip tunggal atau ganda.
+# - Gunakan f-string untuk menyisipkan variabel: f"Halo, {nama}"
+# - Slicing mengambil bagian string: teks[awal:akhir]
+# - Method seperti .strip(), .upper(), .split() tidak mengubah
+#   string asli — mereka menghasilkan string baru.

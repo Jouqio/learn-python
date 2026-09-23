@@ -1,43 +1,43 @@
-"""
-Topic: Numbers (int, float, complex)
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Python supports int, float, and complex numbers, plus arithmetic operators and functions like round(), abs(), and pow().
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-price = 19.999
-quantity = 3
-total = round(price * quantity, 2)
-print(f"Total: {total}")
-print(abs(-total), pow(2, 10))
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Round 3.14159 to 2 decimal places.
-# EXERCISE 2 (easy): Compute the absolute value of -42.
-# EXERCISE 3 (easy): Compute 2 to the power of 8 using pow() and using **.
-# EXERCISE 4 (medium): Convert a float to int and observe truncation behavior.
-# EXERCISE 5 (medium): Write a program that calculates compound interest using floats.
+# Python mendukung tiga tipe angka:
 #
-# Write your solutions below this line.
+# int     → bilangan bulat          contoh: 10, -5, 100
+# float   → bilangan desimal        contoh: 3.14, -0.5
+# complex → bilangan kompleks       contoh: 2+3j (jarang dipakai pemula)
+#
+# Fungsi bawaan yang berguna:
+# - round(x, n) → membulatkan x ke n angka di belakang koma
+# - abs(x)      → nilai mutlak (selalu positif)
+# - pow(x, y)   → x pangkat y (sama dengan x ** y)
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a simple currency rounding utility that always rounds to 2 decimal places and never produces floating point artifacts visibly (use round() correctly).
+# Operasi dasar
+print(10 + 3)   # penjumlahan → 13
+print(10 - 3)   # pengurangan → 7
+print(10 * 3)   # perkalian   → 30
+print(10 / 3)   # pembagian   → 3.333...
+print(10 // 3)  # pembagian bulat → 3
+print(10 % 3)   # sisa bagi   → 1
+print(2 ** 8)   # pangkat     → 256
 
+# round(), abs(), pow()
+print(round(3.14159, 2))  # 3.14
+print(abs(-42))           # 42
+print(pow(2, 10))         # 1024
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Numbers in Python come in a few flavors; float precision quirks are common, so round() and formatting matter.
+# Contoh nyata: menghitung total belanja
+harga = 19.999
+jumlah = 3
+total = round(harga * jumlah, 2)
+print(f"Total belanja: Rp {total}")
+
+# Konversi float ke int (angka di belakang koma dipotong, bukan dibulatkan)
+print(int(9.9))   # 9, bukan 10
+
+# 3. RANGKUMAN
+
+# - int untuk bilangan bulat, float untuk desimal.
+# - Gunakan // untuk pembagian bulat, % untuk sisa bagi.
+# - Gunakan round() saat bekerja dengan uang atau nilai presisi.

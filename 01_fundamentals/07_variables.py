@@ -1,42 +1,47 @@
-"""
-Topic: Variables
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Variables are names bound to values. Python is dynamically typed, so a variable's type is determined by the value assigned to it.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-student_name = "Aulia"
-student_age = 21
-is_active = True
-print(student_name, student_age, is_active)
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Create 3 variables describing yourself and print them.
-# EXERCISE 2 (easy): Reassign a variable to a different type and print its new type with type().
-# EXERCISE 3 (easy): Swap the values of two variables without using a third variable.
-# EXERCISE 4 (medium): Create constants (ALL_CAPS by convention) for a fixed configuration value.
-# EXERCISE 5 (medium): Write a program using multiple assignment: a, b, c = 1, 2, 3.
+# Variabel adalah nama yang menyimpan sebuah nilai.
+# Python menentukan tipe data secara otomatis dari nilai yang diberikan
+# (tidak perlu ditulis manual seperti di bahasa lain).
 #
-# Write your solutions below this line.
+# Aturan penamaan variabel:
+# - Gunakan huruf kecil dan garis bawah: nama_siswa
+# - Tidak boleh diawali angka: 1nama ✗
+# - Konstanta ditulis HURUF_BESAR: TARIF_PAJAK
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a small script that tracks a shopping cart total using clearly named variables (no x, y, z) and prints a receipt.
+# Membuat variabel
+nama_siswa = "Syauqi"
+usia = 21
+aktif = True
 
+print(nama_siswa, usia, aktif)
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Meaningful variable names make code self-documenting; Python variables are just labels pointing to values.
+# Mengecek tipe data variabel
+print(type(nama_siswa))  # <class 'str'>
+print(type(usia))        # <class 'int'>
+print(type(aktif))       # <class 'bool'>
+
+# Variabel bisa diubah nilainya kapan saja
+usia = 22
+print(usia)  # 22
+
+# Multiple assignment — memberi nilai ke beberapa variabel sekaligus
+x, y, z = 1, 2, 3
+print(x, y, z)
+
+# Menukar nilai dua variabel (tanpa variabel ketiga)
+a = "pertama"
+b = "kedua"
+a, b = b, a
+print(a, b)  # kedua pertama
+
+# Konstanta — nilai yang tidak boleh diubah (konvensi: HURUF_BESAR)
+TARIF_PAJAK = 0.11
+
+# 3. RANGKUMAN
+
+# - Variabel menyimpan nilai dan dibuat otomatis saat pertama kali diisi.
+# - Python menentukan tipe data sendiri — tidak perlu dideklarasikan.
+# - Nama variabel yang jelas membuat kode lebih mudah dibaca.

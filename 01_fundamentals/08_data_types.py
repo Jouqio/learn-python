@@ -1,41 +1,32 @@
-"""
-Topic: Data Types
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Python has built-in types: str, int, float, bool, list, tuple, dict, set, and more. Use type() to inspect a value's type.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-values = ["text", 10, 3.14, True, [1, 2], (1, 2), {"a": 1}, {1, 2}]
-for value in values:
-    print(value, "->", type(value).__name__)
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Print the type of 5 different literals (string, int, float, bool, list).
-# EXERCISE 2 (easy): Create one variable of each basic type and print them all.
-# EXERCISE 3 (easy): Use isinstance() to check if a variable is an int.
-# EXERCISE 4 (medium): Write a program that classifies a list of mixed values by type into a dictionary of counts.
-# EXERCISE 5 (medium): Explain (via print statements) the difference between int and float using two examples.
+# Python memiliki beberapa tipe data bawaan yang sering digunakan:
 #
-# Write your solutions below this line.
+# str   → teks              contoh: "halo"
+# int   → bilangan bulat    contoh: 10
+# float → bilangan desimal  contoh: 3.14
+# bool  → benar/salah       contoh: True, False
+# list  → daftar            contoh: [1, 2, 3]
+# tuple → daftar tetap      contoh: (1, 2, 3)
+# dict  → pasangan kunci-nilai  contoh: {"nama": "Aulia"}
+# set   → kumpulan unik     contoh: {1, 2, 3}
+#
+# Gunakan type() untuk mengecek tipe data sebuah nilai.
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function that takes any value and returns a human-readable description of its type and value.
+# Mencetak tipe data dari berbagai nilai
+nilai = ["teks", 10, 3.14, True, [1, 2], (1, 2), {"a": 1}, {1, 2}]
+for item in nilai:
+    print(item, "->", type(item).__name__)
 
+# Mengecek tipe data dengan isinstance()
+angka = 42
+print(isinstance(angka, int))    # True
+print(isinstance(angka, float))  # False
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Knowing Python's core data types is the foundation for every data structure you will use later.
+# 3. RANGKUMAN
+
+# - Python punya banyak tipe data bawaan untuk berbagai kebutuhan.
+# - Gunakan type() untuk melihat tipe sebuah nilai.
+# - Gunakan isinstance() untuk mengecek apakah nilai bertipe tertentu.

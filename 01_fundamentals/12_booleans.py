@@ -1,42 +1,47 @@
-"""
-Topic: Booleans
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Booleans (True/False) represent truth values and result from comparisons. Most objects have a truthiness value.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-is_logged_in = True
-has_permission = False
-print(is_logged_in and has_permission)
-print(bool(""), bool("text"), bool(0), bool([1]))
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Print the result of 5 > 3 and 2 == 2.
-# EXERCISE 2 (easy): Check the truthiness of an empty list vs a non-empty list.
-# EXERCISE 3 (easy): Combine two boolean variables with `and`, `or`, and `not`.
-# EXERCISE 4 (medium): Write an expression that evaluates to True only if a number is between 1 and 10.
-# EXERCISE 5 (medium): Write a function returning True/False for whether a year is a leap year.
+# Boolean hanya punya dua nilai: True (benar) atau False (salah).
+# Dihasilkan dari operasi perbandingan dan digunakan untuk pengambilan keputusan.
 #
-# Write your solutions below this line.
+# Operator boolean:
+# - and → keduanya harus True
+# - or  → salah satu cukup True
+# - not → membalik nilai (True jadi False, sebaliknya)
+#
+# Nilai yang dianggap False (falsy):
+# - 0, 0.0, "", [], {}, None
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function `can_vote(age, is_citizen)` that returns a boolean using proper boolean logic (no magic numbers).
+# Nilai boolean dasar
+sudah_login = True
+punya_izin  = False
 
+# Operator and, or, not
+print(sudah_login and punya_izin)   # False — keduanya harus True
+print(sudah_login or punya_izin)    # True  — salah satu cukup
+print(not sudah_login)              # False — dibalik
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Booleans drive decision-making in Python; understanding truthiness avoids subtle bugs.
+# Hasil perbandingan menghasilkan boolean
+print(5 > 3)    # True
+print(5 == 3)   # False
+print(5 != 3)   # True
+
+# Truthiness — nilai non-boolean yang dianggap True atau False
+print(bool(""))     # False — string kosong
+print(bool("teks")) # True  — string berisi
+print(bool(0))      # False — angka nol
+print(bool([1, 2])) # True  — list berisi
+
+# Contoh nyata: mengecek kondisi ganda
+usia = 20
+warga_negara = True
+
+boleh_memilih = usia >= 17 and warga_negara
+print(boleh_memilih)  # True
+
+# 3. RANGKUMAN
+
+# - Boolean hanya True atau False.
+# - Gunakan and, or, not untuk menggabungkan kondisi.
+# - Nilai kosong (0, "", [], None) dianggap False oleh Python.
