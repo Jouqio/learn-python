@@ -1,43 +1,83 @@
-"""
-Topic: Iterators
-Level: Intermediate
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# An iterator implements __iter__ and __next__. Lists, strings, and ranges are iterable; iter() and next() expose the protocol directly.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-numbers = [10, 20, 30]
-it = iter(numbers)
-print(next(it))
-print(next(it))
-print(next(it))
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Create an iterator from a list and manually call next() 3 times.
-# EXERCISE 2 (easy): Catch the StopIteration exception when an iterator is exhausted.
-# EXERCISE 3 (easy): Write a custom class implementing __iter__ and __next__ for a countdown.
-# EXERCISE 4 (medium): Use a generator expression to lazily produce squares.
-# EXERCISE 5 (medium): Explain the difference between an iterable and an iterator in your own words (as prints).
+# Iterator adalah objek yang bisa menghasilkan nilai satu per satu
+# menggunakan fungsi next().
 #
-# Write your solutions below this line.
+# Perbedaan iterable dan iterator:
+# - Iterable → bisa diulang (list, string, range) tapi belum tentu iterator
+# - Iterator  → objek yang punya next(), dihasilkan dari iter()
+#
+# Di balik layar, for loop Python sebenarnya menggunakan iterator secara otomatis.
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a custom iterator class `EvenNumbers(limit)` that yields even numbers up to `limit`.
+# Membuat iterator dari list
+angka = [10, 20, 30]
+it = iter(angka)        # ubah list menjadi iterator
 
+print(next(it))         # 10
+print(next(it))         # 20
+print(next(it))         # 30
+# next(it) lagi → StopIteration (data habis)
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Iterators provide a uniform lazy-access protocol behind Python's for loops.
+# Menangani StopIteration dengan try/except
+it2 = iter([1, 2])
+try:
+    print(next(it2))    # 1
+    print(next(it2))    # 2
+    print(next(it2))    # memicu StopIteration
+except StopIteration:
+    print("Data iterator sudah habis.")
+
+# For loop = iterator secara otomatis di balik layar
+for n in [10, 20, 30]:
+    print(n)
+# Kode di atas setara dengan menggunakan iter() + next() secara manual
+
+# Generator expression — iterator ringkas dan hemat memori
+kuadrat = (n ** 2 for n in range(1, 6))  # pakai () bukan []
+for nilai in kuadrat:
+    print(nilai)        # 1 4 9 16 25
+
+# Kelas iterator kustom — membuat countdown sendiri
+class HitungMundur:
+    def __init__(self, mulai):
+        self.angka = mulai
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.angka <= 0:
+            raise StopIteration
+        self.angka -= 1
+        return self.angka + 1
+
+for n in HitungMundur(5):
+    print(n)            # 5 4 3 2 1
+
+# Kelas iterator kustom — bilangan genap sampai batas tertentu
+class BilanganGenap:
+    def __init__(self, batas):
+        self.angka = 0
+        self.batas = batas
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.angka += 2
+        if self.angka > self.batas:
+            raise StopIteration
+        return self.angka
+
+for n in BilanganGenap(10):
+    print(n)            # 2 4 6 8 10
+
+# 3. RANGKUMAN
+
+# - Iterable adalah objek yang bisa diulang (list, string, range).
+# - Iterator dihasilkan dari iter() dan menggunakan next() untuk ambil nilai.
+# - For loop menggunakan iterator secara otomatis di balik layar.
+# - Generator expression (...) membuat iterator ringkas tanpa kelas.
+# - Buat iterator kustom dengan mengimplementasikan __iter__ dan __next__.

@@ -1,43 +1,59 @@
-"""
-Topic: Modules
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
-
 # ============================================
-# 1. CONCEPT
-# ============================================
-# Modules are .py files you can import to reuse code. Python also ships a large standard library of built-in modules.
-
-# ============================================
-# 2. EXAMPLE
+# Topik : Modul (Modules)
+# Level : Pemula
 # ============================================
 
+
+# ============================================
+# 1. KONSEP
+# ============================================
+# Modul adalah file .py yang berisi kode yang bisa diimpor dan digunakan
+# di file lain. Python sudah menyediakan banyak modul bawaan (standard library)
+# yang siap pakai tanpa perlu instalasi tambahan.
+#
+# Cara mengimpor modul:
+# - import modul              → impor seluruh modul
+# - from modul import fungsi  → impor fungsi tertentu saja
+# - import modul as alias     → impor dengan nama singkat
+
+# 2. CONTOH
+
+# import biasa — akses fungsi lewat nama modul
 import math
 import random
 
-print(math.sqrt(16))
-print(random.randint(1, 6))
+print(math.pi)            # 3.141592653589793
+print(math.sqrt(16))      # 4.0
+print(math.floor(3.9))    # 3
+print(math.ceil(3.1))     # 4
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Import the math module and use math.pi.
-# EXERCISE 2 (easy): Import only a specific function using `from module import name`.
-# EXERCISE 3 (easy): Create your own module file and import a function from it.
-# EXERCISE 4 (medium): Use `import module as alias` and explain when that's useful.
-# EXERCISE 5 (medium): List 3 standard library modules and what each is used for.
-#
-# Write your solutions below this line.
+# random — menghasilkan nilai acak
+print(random.randint(1, 6))          # angka acak antara 1-6 (seperti dadu)
+print(random.choice(["batu", "gunting", "kertas"]))  # pilih acak dari list
 
+# from ... import — impor fungsi tertentu saja (tanpa awalan modul)
+from math import sqrt, pi
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Create a small `string_utils.py` module with 2 helper functions, then import and use it from another file.
+print(sqrt(25))   # 5.0  (tidak perlu math.sqrt)
+print(pi)         # 3.141592653589793
 
+# import dengan alias — berguna saat nama modul panjang
+import random as rnd
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Modules let you organize and reuse code across files instead of duplicating logic.
+print(rnd.randint(1, 100))
+
+# Beberapa modul bawaan yang sering dipakai
+import os
+import datetime
+
+print(os.getcwd())                          # direktori kerja saat ini
+print(datetime.date.today())                # tanggal hari ini
+print(datetime.datetime.now())              # tanggal dan waktu sekarang
+
+# 3. RANGKUMAN
+
+# - Modul adalah file .py berisi fungsi/variabel yang bisa diimpor ulang.
+# - Gunakan import untuk mengimpor seluruh modul.
+# - Gunakan from ... import untuk mengimpor fungsi tertentu saja.
+# - Gunakan import ... as untuk membuat alias nama modul.
+# - Python punya banyak modul bawaan: math, random, os, datetime, dll.
