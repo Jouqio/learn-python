@@ -1,53 +1,89 @@
-"""
-Topic: Encapsulation
-Level: Intermediate
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Encapsulation restricts direct access to internal state using naming conventions (_protected, __private) and properties.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-class BankAccount:
-    def __init__(self, balance):
-        self.__balance = balance  # name-mangled 'private' attribute
-
-    @property
-    def balance(self):
-        return self.__balance
-
-    def deposit(self, amount):
-        if amount > 0:
-            self.__balance += amount
-
-acc = BankAccount(1000)
-acc.deposit(500)
-print(acc.balance)
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Create a class with a private attribute (double underscore) and a public getter method.
-# EXERCISE 2 (easy): Use @property to expose a private attribute as read-only.
-# EXERCISE 3 (easy): Add validation inside a setter method (or @x.setter) to reject invalid values.
-# EXERCISE 4 (medium): Explain the difference between _protected and __private naming conventions.
-# EXERCISE 5 (medium): Show what happens when you try to access a name-mangled attribute directly.
+# Enkapsulasi adalah cara menyembunyikan data internal dari akses luar,
+# agar data hanya bisa diubah melalui cara yang sudah dikontrol.
 #
-# Write your solutions below this line.
+# Konvensi penamaan di Python:
+# - nama       → atribut publik, bebas diakses dari mana saja
+# - _nama      → atribut terlindungi (protected), isyarat "jangan diakses dari luar"
+# - __nama     → atribut privat, nama diubah Python agar sulit diakses langsung
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Design a `Password` class that stores a hashed value internally and only exposes a `check(guess)` method — never the raw password.
+# Atribut privat dengan __nama
+class RekeningBank:
+    def __init__(self, saldo):
+        self.__saldo = saldo    # privat — tidak bisa diakses langsung dari luar
 
+    # @property — getter, mengakses saldo secara read-only
+    @property
+    def saldo(self):
+        return self.__saldo
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Encapsulation protects internal state, exposing only a controlled, validated interface to the outside.
+    # @saldo.setter — setter dengan validasi
+    @saldo.setter
+    def saldo(self, nilai):
+        if nilai < 0:
+            print("Saldo tidak boleh negatif.")
+        else:
+            self.__saldo = nilai
+
+    def setor(self, jumlah):
+        if jumlah <= 0:
+            print("Jumlah setor harus lebih dari nol.")
+            return
+        self.__saldo += jumlah
+        print(f"Setor Rp {jumlah:,} → saldo: Rp {self.__saldo:,}")
+
+    def tarik(self, jumlah):
+        if jumlah > self.__saldo:
+            print("Saldo tidak cukup.")
+            return
+        self.__saldo -= jumlah
+        print(f"Tarik Rp {jumlah:,} → saldo: Rp {self.__saldo:,}")
+
+rek = RekeningBank(1000000)
+rek.setor(500000)     # Setor Rp 500,000 → saldo: Rp 1,500,000
+rek.tarik(200000)     # Tarik Rp 200,000 → saldo: Rp 1,300,000
+print(rek.saldo)      # 1300000 — akses lewat @property
+
+# Akses langsung ke atribut privat akan error
+try:
+    print(rek.__saldo)  # AttributeError
+except AttributeError as e:
+    print(f"Tidak bisa diakses langsung: {e}")
+
+# Perbedaan publik, protected, dan privat
+class Contoh:
+    def __init__(self):
+        self.publik     = "bebas diakses"       # publik
+        self._terlindung = "sebaiknya tidak diakses dari luar"  # protected
+        self.__privat   = "tidak bisa diakses langsung"         # privat
+
+c = Contoh()
+print(c.publik)       # bebas diakses
+print(c._terlindung)  # bisa, tapi melanggar konvensi
+# print(c.__privat)   # AttributeError
+
+# Contoh nyata: class Password — tidak pernah membocorkan nilai asli
+import hashlib
+
+class Password:
+    def __init__(self, kata_sandi):
+        self.__hash = hashlib.sha256(kata_sandi.encode()).hexdigest()
+
+    def cek(self, tebakan):
+        return hashlib.sha256(tebakan.encode()).hexdigest() == self.__hash
+
+pw = Password("rahasia123")
+print(pw.cek("salah"))       # False
+print(pw.cek("rahasia123"))  # True
+# print(pw.__hash)           # AttributeError — tidak bisa diakses
+
+# 3. RANGKUMAN
+
+# - Enkapsulasi menyembunyikan data internal agar tidak diubah sembarangan.
+# - Gunakan __nama untuk atribut privat yang tidak boleh diakses dari luar.
+# - Gunakan @property untuk membuat getter yang aman (read-only).
+# - Gunakan @nama.setter untuk mengontrol perubahan nilai dengan validasi.
+# - _nama (satu garis bawah) hanya isyarat konvensi — Python tidak memblokir aksesnya.

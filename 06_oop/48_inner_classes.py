@@ -1,52 +1,84 @@
-"""
-Topic: Inner (Nested) Classes
-Level: Intermediate
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# A class defined inside another class is useful for tightly-coupled helper structures.
+# Inner class adalah class yang didefinisikan di dalam class lain.
+# Digunakan saat dua class sangat erat hubungannya dan inner class
+# tidak perlu dipakai di luar class induknya.
+#
+# Kapan pakai inner class:
+# - Struktur pembantu yang hanya relevan untuk class induknya
+# - Contoh umum: Node di dalam LinkedList, Address di dalam Customer
 
-# ============================================
-# 2. EXAMPLE
-# ============================================
+# 2. CONTOH
 
-class Library:
-    class Book:
-        def __init__(self, title):
-            self.title = title
+# Inner class dasar
+class Perpustakaan:
+    class Buku:                         # inner class
+        def __init__(self, judul):
+            self.judul = judul
+
+        def info(self):
+            return f"Buku: {self.judul}"
 
     def __init__(self):
-        self.books = []
+        self.koleksi = []
 
-    def add_book(self, title):
-        self.books.append(Library.Book(title))
+    def tambah_buku(self, judul):
+        buku_baru = Perpustakaan.Buku(judul)   # buat objek inner class
+        self.koleksi.append(buku_baru)
 
-lib = Library()
-lib.add_book("Bumi Manusia")
-print(lib.books[0].title)
+    def tampilkan(self):
+        for buku in self.koleksi:
+            print(buku.info())
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Define a simple inner class inside an outer class.
-# EXERCISE 2 (easy): Create an instance of the inner class through the outer class.
-# EXERCISE 3 (easy): Explain a real scenario where an inner class makes sense (e.g. Node inside LinkedList).
-# EXERCISE 4 (medium): Add a method to the outer class that creates and returns inner class instances.
-# EXERCISE 5 (medium): Compare defining the same structure as a separate top-level class instead.
-#
-# Write your solutions below this line.
+lib = Perpustakaan()
+lib.tambah_buku("Bumi Manusia")
+lib.tambah_buku("Laskar Pelangi")
+lib.tampilkan()
 
+# Membuat inner class langsung dari luar (jika perlu)
+buku_luar = Perpustakaan.Buku("Perahu Kertas")
+print(buku_luar.info())
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Design a `LinkedList` class with an inner `Node` class, supporting an `append(value)` method.
+# Contoh nyata: LinkedList dengan inner class Node
+class LinkedList:
+    class Node:                        # inner class — hanya untuk LinkedList
+        def __init__(self, nilai):
+            self.nilai   = nilai
+            self.berikut = None        # menunjuk ke Node selanjutnya
 
+    def __init__(self):
+        self.kepala = None             # awal dari linked list
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Inner classes group tightly related helper structures inside the class that owns them.
+    def tambah(self, nilai):
+        node_baru = LinkedList.Node(nilai)
+
+        if self.kepala is None:        # list masih kosong
+            self.kepala = node_baru
+            return
+
+        # Pergi ke node paling akhir, lalu sambungkan
+        saat_ini = self.kepala
+        while saat_ini.berikut is not None:
+            saat_ini = saat_ini.berikut
+        saat_ini.berikut = node_baru
+
+    def tampilkan(self):
+        hasil  = []
+        saat_ini = self.kepala
+        while saat_ini is not None:
+            hasil.append(str(saat_ini.nilai))
+            saat_ini = saat_ini.berikut
+        print(" → ".join(hasil))
+
+ll = LinkedList()
+ll.tambah(10)
+ll.tambah(20)
+ll.tambah(30)
+ll.tampilkan()   # 10 → 20 → 30
+
+# 3. RANGKUMAN
+
+# - Inner class adalah class yang didefinisikan di dalam class lain.
+# - Gunakan saat class pembantu hanya relevan untuk class induknya.
+# - Akses inner class lewat: NamaInduk.NamaInner()
+# - Contoh nyata yang umum: Node di dalam LinkedList, Item di dalam Cart.

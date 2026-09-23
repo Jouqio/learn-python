@@ -1,50 +1,106 @@
-"""
-Topic: Magic (Dunder) Methods
-Level: Intermediate
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Magic methods like __str__, __eq__, and __len__ let custom objects work with built-in functions and operators.
+# Magic method adalah method khusus yang diawali dan diakhiri dua garis bawah.
+# Disebut juga "dunder" (double underscore).
+#
+# Magic method memungkinkan objek bekerja dengan fungsi dan operator bawaan Python.
+#
+# Yang sering digunakan:
+# - __str__  → menentukan tampilan saat print(objek)
+# - __repr__ → tampilan untuk debugging (lebih teknis dari __str__)
+# - __eq__   → menentukan hasil objek == objek
+# - __len__  → menentukan hasil len(objek)
+# - __add__  → menentukan hasil objek + objek
 
-# ============================================
-# 2. EXAMPLE
-# ============================================
+# 2. CONTOH
 
-class Point:
+# __str__ dan __repr__
+class Titik:
     def __init__(self, x, y):
-        self.x, self.y = x, y
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"Titik({self.x}, {self.y})"   # untuk print()
+
+    def __repr__(self):
+        return f"Titik(x={self.x}, y={self.y})"  # untuk debugging
+
+t = Titik(3, 5)
+print(t)        # Titik(3, 5)   → pakai __str__
+print(repr(t))  # Titik(x=3, y=5) → pakai __repr__
+
+# __eq__ — membandingkan dua objek berdasarkan nilai
+class Poin:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
     def __str__(self):
         return f"({self.x}, {self.y})"
 
-    def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
+    def __eq__(self, lain):
+        return self.x == lain.x and self.y == lain.y
 
-p1, p2 = Point(1, 2), Point(1, 2)
-print(p1, p1 == p2)
+p1 = Poin(1, 2)
+p2 = Poin(1, 2)
+p3 = Poin(3, 4)
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Implement __str__ for a class so print() shows something readable.
-# EXERCISE 2 (easy): Implement __eq__ to compare two objects by value.
-# EXERCISE 3 (easy): Implement __len__ so len() works on a custom object.
-# EXERCISE 4 (medium): Implement __add__ so two objects can be combined with +.
-# EXERCISE 5 (medium): Implement __repr__ and explain how it differs from __str__.
-#
-# Write your solutions below this line.
+print(p1 == p2)  # True  — nilai sama
+print(p1 == p3)  # False — nilai beda
 
+# __len__ — mendukung fungsi len()
+class Keranjang:
+    def __init__(self):
+        self.isi = []
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Design a `Vector` class supporting __add__, __sub__, __str__, and __eq__ for 2D vector math.
+    def tambah(self, item):
+        self.isi.append(item)
 
+    def __len__(self):
+        return len(self.isi)
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Magic methods let your custom classes integrate naturally with Python's built-in syntax and functions.
+    def __str__(self):
+        return f"Keranjang: {self.isi}"
+
+k = Keranjang()
+k.tambah("apel")
+k.tambah("pisang")
+k.tambah("mangga")
+
+print(len(k))  # 3
+print(k)       # Keranjang: ['apel', 'pisang', 'mangga']
+
+# __add__ dan __sub__ — operasi matematika antar objek
+class Vektor:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"Vektor({self.x}, {self.y})"
+
+    def __eq__(self, lain):
+        return self.x == lain.x and self.y == lain.y
+
+    def __add__(self, lain):
+        return Vektor(self.x + lain.x, self.y + lain.y)
+
+    def __sub__(self, lain):
+        return Vektor(self.x - lain.x, self.y - lain.y)
+
+v1 = Vektor(1, 2)
+v2 = Vektor(3, 4)
+
+print(v1 + v2)   # Vektor(4, 6)
+print(v2 - v1)   # Vektor(2, 2)
+print(v1 == v2)  # False
+
+# 3. RANGKUMAN
+
+# - Magic method diawali dan diakhiri __ (dunder).
+# - __str__  → tampilan saat print() dipanggil.
+# - __repr__ → tampilan teknis untuk debugging.
+# - __eq__   → mengatur perilaku operator ==.
+# - __len__  → mengatur perilaku fungsi len().
+# - __add__  → mengatur perilaku operator +.
