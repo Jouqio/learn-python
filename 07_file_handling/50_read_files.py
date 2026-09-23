@@ -1,44 +1,71 @@
-"""
-Topic: Reading Files
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Files can be read fully with .read(), line by line with .readline()/for-loop, or all lines with .readlines().
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-with open("sample.txt", "w", encoding="utf-8") as f:
-    f.write("Satu\nDua\nTiga\n")
-
-with open("sample.txt", "r", encoding="utf-8") as f:
-    for line_number, line in enumerate(f, start=1):
-        print(f"{line_number}: {line.strip()}")
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Read a file's entire content into one string.
-# EXERCISE 2 (easy): Read a file line by line using a for loop.
-# EXERCISE 3 (easy): Read only the first line of a file using .readline().
-# EXERCISE 4 (medium): Read all lines into a list using .readlines().
-# EXERCISE 5 (medium): Count the number of lines in a file.
+# Ada beberapa cara membaca file di Python:
 #
-# Write your solutions below this line.
+# - .read()      → membaca seluruh isi file sekaligus sebagai satu string
+# - .readline()  → membaca satu baris saja
+# - .readlines() → membaca semua baris, hasilnya list
+# - for loop     → membaca baris per baris (paling hemat memori)
+#
+# Pilih cara yang sesuai dengan kebutuhan dan ukuran file.
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function `read_csv_like(filepath)` that reads a comma-separated text file and returns a list of row lists.
+# Buat file contoh dulu
+with open("contoh.txt", "w", encoding="utf-8") as f:
+    f.write("Satu\nDua\nTiga\nEmpat\nLima\n")
 
+# .read() — membaca seluruh isi sekaligus
+with open("contoh.txt", "r", encoding="utf-8") as f:
+    semua = f.read()
+print(semua)
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Choose the reading strategy (.read/.readline/.readlines/for-loop) based on file size and what you need.
+# .readline() — membaca satu baris saja
+with open("contoh.txt", "r", encoding="utf-8") as f:
+    baris_pertama = f.readline()
+    baris_kedua   = f.readline()
+print(baris_pertama.strip())  # Satu
+print(baris_kedua.strip())    # Dua
+
+# .readlines() — semua baris disimpan dalam list
+with open("contoh.txt", "r", encoding="utf-8") as f:
+    daftar_baris = f.readlines()
+print(daftar_baris)  # ['Satu\n', 'Dua\n', 'Tiga\n', ...]
+
+# for loop — membaca baris per baris (direkomendasikan untuk file besar)
+with open("contoh.txt", "r", encoding="utf-8") as f:
+    for nomor, baris in enumerate(f, start=1):
+        print(f"{nomor}: {baris.strip()}")
+
+# Menghitung jumlah baris dalam file
+with open("contoh.txt", "r", encoding="utf-8") as f:
+    jumlah_baris = sum(1 for _ in f)
+print(f"Jumlah baris: {jumlah_baris}")
+
+# Contoh nyata: membaca file CSV sederhana
+with open("data.txt", "w", encoding="utf-8") as f:
+    f.write("Andi,90,Lulus\n")
+    f.write("Budi,55,Tidak Lulus\n")
+    f.write("Citra,78,Lulus\n")
+
+def baca_csv_sederhana(nama_file):
+    hasil = []
+    try:
+        with open(nama_file, "r", encoding="utf-8") as f:
+            for baris in f:
+                kolom = baris.strip().split(",")
+                hasil.append(kolom)
+    except FileNotFoundError:
+        print("File tidak ditemukan.")
+    return hasil
+
+data = baca_csv_sederhana("data.txt")
+for baris in data:
+    print(baris)  # ['Andi', '90', 'Lulus']
+
+# 3. RANGKUMAN
+
+# - .read()      → cocok untuk file kecil yang ingin dibaca sekaligus.
+# - .readline()  → cocok saat hanya butuh satu baris tertentu.
+# - .readlines() → cocok saat semua baris perlu disimpan dalam list.
+# - for loop     → cara terbaik untuk file besar, hemat memori.

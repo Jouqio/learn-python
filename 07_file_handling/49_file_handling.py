@@ -1,43 +1,67 @@
-"""
-Topic: File Handling Overview
-Level: Beginner
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Python reads/writes files using open() with modes like 'r', 'w', 'a', 'x', ideally inside a `with` block for automatic closing.
+# Python bisa membaca dan menulis file menggunakan fungsi open().
+#
+# Mode yang tersedia:
+# - "r"  → baca file (default) — error jika file tidak ada
+# - "w"  → tulis file — membuat baru atau menimpa yang sudah ada
+# - "a"  → tambah di akhir file tanpa menghapus isi lama
+# - "x"  → buat file baru — error jika file sudah ada
+#
+# Selalu gunakan blok "with" agar file otomatis ditutup
+# setelah selesai, bahkan jika terjadi error.
 
-# ============================================
-# 2. EXAMPLE
-# ============================================
+# 2. CONTOH
 
-with open("sample.txt", "w", encoding="utf-8") as f:
-    f.write("Line 1\nLine 2\n")
+# Menulis file — mode "w"
+with open("contoh.txt", "w", encoding="utf-8") as f:
+    f.write("Baris pertama\n")
+    f.write("Baris kedua\n")
 
-with open("sample.txt", "r", encoding="utf-8") as f:
+# Membaca seluruh isi file — mode "r"
+with open("contoh.txt", "r", encoding="utf-8") as f:
+    isi = f.read()
+print(isi)
+
+# Membaca baris per baris
+with open("contoh.txt", "r", encoding="utf-8") as f:
+    for baris in f:
+        print(baris.strip())  # strip() menghapus \n di akhir baris
+
+# Membaca semua baris sebagai list
+with open("contoh.txt", "r", encoding="utf-8") as f:
+    semua_baris = f.readlines()
+print(semua_baris)  # ['Baris pertama\n', 'Baris kedua\n']
+
+# Menambah isi file — mode "a" (tidak menghapus isi lama)
+with open("contoh.txt", "a", encoding="utf-8") as f:
+    f.write("Baris ketiga\n")
+
+# Membaca ulang setelah ditambah
+with open("contoh.txt", "r", encoding="utf-8") as f:
     print(f.read())
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Open a file in write mode and write 2 lines to it.
-# EXERCISE 2 (easy): Open the same file in read mode and print its contents.
-# EXERCISE 3 (easy): Open a file in append mode and add a third line.
-# EXERCISE 4 (medium): Explain why `with open(...) as f:` is preferred over manual open()/close().
-# EXERCISE 5 (medium): Handle a missing file gracefully using try/except FileNotFoundError.
-#
-# Write your solutions below this line.
+# Menangani file yang tidak ada
+try:
+    with open("tidak_ada.txt", "r", encoding="utf-8") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("File tidak ditemukan.")
 
+# Contoh nyata: menghitung jumlah kata dalam file
+def hitung_kata(nama_file):
+    try:
+        with open(nama_file, "r", encoding="utf-8") as f:
+            isi = f.read()
+        return len(isi.split())
+    except FileNotFoundError:
+        return 0
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function `word_count(filepath)` that returns the number of words in a text file.
+print(f"Jumlah kata: {hitung_kata('contoh.txt')}")
 
+# 3. RANGKUMAN
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Always use `with` when working with files so they are closed automatically, even if an error occurs.
+# - Gunakan open() dengan mode yang sesuai: "r", "w", "a", atau "x".
+# - Selalu gunakan "with open(...) as f:" agar file otomatis ditutup.
+# - Gunakan encoding="utf-8" agar karakter Indonesia terbaca dengan benar.
+# - Tangani FileNotFoundError saat membaca file yang mungkin tidak ada.
