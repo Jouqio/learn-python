@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.vscode/
+.idea/
+.pytest_cache/
+.DS_Store
+*.json
+*.csv
+*.png
+!requirements.txt

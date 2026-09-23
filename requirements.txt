@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+scipy
+scikit-learn
+mysql-connector-python
+pymongo
+django
+pytest
