@@ -1,43 +1,90 @@
-"""
-Topic: Django Introduction
-Level: Intermediate
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Django is a batteries-included web framework built on the MVT (Model-View-Template) pattern.
-
-# ============================================
-# 2. EXAMPLE
-# ============================================
-
-# Conceptual overview only - no server started here.
-print("django-admin startproject mysite   # create a project")
-print("python manage.py startapp blog     # create an app")
-print("python manage.py runserver         # run dev server")
-print("python manage.py makemigrations && python manage.py migrate")
-
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Write the command to start a new Django project called 'mysite'.
-# EXERCISE 2 (easy): Write the command to create an app called 'blog' inside that project.
-# EXERCISE 3 (easy): List the 3 letters in MVT and what each stands for.
-# EXERCISE 4 (medium): Write a minimal Django view function (as code) that returns an HttpResponse.
-# EXERCISE 5 (medium): Write a minimal urls.py snippet mapping '/' to that view.
+# Django adalah web framework Python yang lengkap — tersedia ORM, admin panel,
+# autentikasi, dan banyak lagi tanpa perlu instalasi tambahan.
 #
-# Write your solutions below this line.
+# Django menggunakan pola MVT (Model-View-Template):
+# - Model    → mendefinisikan struktur data dan berinteraksi dengan database
+# - View     → logika pemrosesan request dan pengiriman response
+# - Template → tampilan HTML yang dikirim ke browser
+#
+# Alur request Django:
+# URL → View → (Model jika perlu data) → Template → Response
 
+# 2. CONTOH
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Sketch (as commented pseudocode) a Django model `Post` with title, content, and created_at fields, plus its matching URL and view.
+# Semua perintah di bawah dijalankan di TERMINAL
 
+# -- SETUP PROJECT BARU --
+# pip install django                          → instal Django
+# django-admin startproject namaproject      → buat project baru
+# cd namaproject
+# python manage.py startapp namaapp          → buat app di dalam project
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Django structures a web app into models (data), views (logic), and templates (presentation), with an ORM and admin panel included.
+# -- MENJALANKAN SERVER --
+# python manage.py runserver                 → jalankan server di localhost:8000
+
+# -- DATABASE --
+# python manage.py makemigrations            → buat file migrasi dari model
+# python manage.py migrate                   → terapkan migrasi ke database
+
+# -- ADMIN --
+# python manage.py createsuperuser           → buat akun admin
+
+print("Perintah utama Django:")
+print("  django-admin startproject namaproject")
+print("  python manage.py startapp namaapp")
+print("  python manage.py runserver")
+print("  python manage.py makemigrations && python manage.py migrate")
+
+# Contoh minimal — view function
+# (kode ini berada di dalam file views.py, bukan di sini)
+contoh_view = """
+# views.py
+from django.http import HttpResponse
+
+def beranda(request):
+    return HttpResponse("Halo dari Django!")
+"""
+
+# Contoh minimal — routing URL
+# (kode ini berada di dalam file urls.py)
+contoh_urls = """
+# urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.beranda, name='beranda'),
+]
+"""
+
+# Contoh model Django
+# (kode ini berada di dalam file models.py)
+contoh_model = """
+# models.py
+from django.db import models
+
+class Post(models.Model):
+    judul      = models.CharField(max_length=200)
+    isi        = models.TextField()
+    dibuat_pada = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.judul
+"""
+
+print("\nContoh view:")
+print(contoh_view)
+print("Contoh URL routing:")
+print(contoh_urls)
+print("Contoh model:")
+print(contoh_model)
+
+# 3. RANGKUMAN
+
+# - Django adalah web framework Python yang lengkap — siap pakai tanpa banyak konfigurasi.
+# - Pola MVT: Model (data), View (logika), Template (tampilan).
+# - Alur: URL diterima → View dijalankan → data dari Model → Template di-render → Response.
+# - manage.py adalah alat utama untuk mengelola project Django.
+# - Django menyediakan admin panel bawaan yang bisa langsung digunakan.
