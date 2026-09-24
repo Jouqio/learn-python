@@ -1,1 +1,246 @@
-# Python Learning Progress\n\n\n## Fundamentals\n\n- [ ] 01 Python Home / Overview - Status: Not Started\n- [ ] 02 Introduction to Python - Status: Not Started\n- [ ] 03 Getting Started (Running Python) - Status: Not Started\n- [ ] 04 Python Syntax - Status: Not Started\n- [ ] 05 Output with print() - Status: Not Started\n- [ ] 06 Comments - Status: Not Started\n- [ ] 07 Variables - Status: Not Started\n- [ ] 08 Data Types - Status: Not Started\n- [ ] 09 Numbers (int, float, complex) - Status: Not Started\n- [ ] 10 Type Casting - Status: Not Started\n- [ ] 11 Strings - Status: Not Started\n- [ ] 12 Booleans - Status: Not Started\n- [ ] 13 Operators - Status: Not Started\n\n## Data Structures\n\n- [ ] 14 Lists - Status: Not Started\n- [ ] 15 Tuples - Status: Not Started\n- [ ] 16 Sets - Status: Not Started\n- [ ] 17 Dictionaries - Status: Not Started\n\n## Control Flow\n\n- [ ] 18 If...Else - Status: Not Started\n- [ ] 19 Match Statement - Status: Not Started\n- [ ] 20 While Loops - Status: Not Started\n- [ ] 21 For Loops - Status: Not Started\n\n## Functions\n\n- [ ] 22 Functions - Status: Not Started\n- [ ] 23 Lambda Functions - Status: Not Started\n- [ ] 24 Arrays (via list / array module) - Status: Not Started\n- [ ] 25 Iterators - Status: Not Started\n- [ ] 26 Variable Scope - Status: Not Started\n- [ ] 27 Modules - Status: Not Started\n\n## Advanced Basics\n\n- [ ] 28 Dates and Times - Status: Not Started\n- [ ] 29 Math Module - Status: Not Started\n- [ ] 30 JSON - Status: Not Started\n- [ ] 31 Regular Expressions - Status: Not Started\n- [ ] 32 Pip (Package Manager) - Status: Not Started\n- [ ] 33 Exception Handling - Status: Not Started\n- [ ] 34 String Formatting - Status: Not Started\n- [ ] 35 The None Type - Status: Not Started\n- [ ] 36 User Input - Status: Not Started\n- [ ] 37 Virtual Environments - Status: Not Started\n\n## OOP\n\n- [ ] 38 OOP Introduction - Status: Not Started\n- [ ] 39 Classes and Objects - Status: Not Started\n- [ ] 40 The **init**() Method - Status: Not Started\n- [ ] 41 The self Parameter - Status: Not Started\n- [ ] 42 Class Properties (Attributes) - Status: Not Started\n- [ ] 43 Instance, Class, and Static Methods - Status: Not Started\n- [ ] 44 Magic (Dunder) Methods - Status: Not Started\n- [ ] 45 Inheritance - Status: Not Started\n- [ ] 46 Polymorphism - Status: Not Started\n- [ ] 47 Encapsulation - Status: Not Started\n- [ ] 48 Inner (Nested) Classes - Status: Not Started\n\n## File Handling\n\n- [ ] 49 File Handling Overview - Status: Not Started\n- [ ] 50 Reading Files - Status: Not Started\n- [ ] 51 Writing and Creating Files - Status: Not Started\n- [ ] 52 Deleting Files and Folders - Status: Not Started\n\n## Libraries - NumPy\n\n- [ ] 53 NumPy - Status: Not Started\n\n## Libraries - Pandas\n\n- [ ] 54 Pandas - Status: Not Started\n\n## Libraries - SciPy\n\n- [ ] 55 SciPy - Status: Not Started\n\n## Django\n\n- [ ] 56 Django Introduction - Status: Not Started\n\n## Libraries - Matplotlib\n\n- [ ] 57 Matplotlib Introduction - Status: Not Started\n- [ ] 58 Matplotlib Getting Started - Status: Not Started\n- [ ] 59 The Pyplot Module - Status: Not Started\n- [ ] 60 Plotting X and Y Points - Status: Not Started\n- [ ] 61 Markers - Status: Not Started\n- [ ] 62 Line Styles - Status: Not Started\n- [ ] 63 Labels and Titles - Status: Not Started\n- [ ] 64 Adding Grid Lines - Status: Not Started\n- [ ] 65 Subplots - Status: Not Started\n- [ ] 66 Scatter Plots - Status: Not Started\n- [ ] 67 Bar Charts - Status: Not Started\n- [ ] 68 Histograms - Status: Not Started\n- [ ] 69 Pie Charts - Status: Not Started\n\n## Machine Learning\n\n- [ ] 70 Machine Learning Introduction - Status: Not Started\n- [ ] 71 Mean, Median, Mode - Status: Not Started\n- [ ] 72 Standard Deviation - Status: Not Started\n- [ ] 73 Percentiles - Status: Not Started\n- [ ] 74 Data Distribution - Status: Not Started\n- [ ] 75 Normal Distribution - Status: Not Started\n- [ ] 76 Scatter Plot for ML - Status: Not Started\n- [ ] 77 Linear Regression - Status: Not Started\n- [ ] 78 Polynomial Regression - Status: Not Started\n- [ ] 79 Multiple Regression - Status: Not Started\n- [ ] 80 Feature Scaling - Status: Not Started\n- [ ] 81 Train/Test Split - Status: Not Started\n- [ ] 82 Decision Tree - Status: Not Started\n- [ ] 83 Confusion Matrix - Status: Not Started\n- [ ] 84 Hierarchical Clustering - Status: Not Started\n- [ ] 85 Logistic Regression - Status: Not Started\n- [ ] 86 Grid Search (Hyperparameter Tuning) - Status: Not Started\n- [ ] 87 Categorical Data - Status: Not Started\n- [ ] 88 K-Means Clustering - Status: Not Started\n- [ ] 89 Bootstrap Aggregation (Bagging) - Status: Not Started\n- [ ] 90 Cross Validation - Status: Not Started\n- [ ] 91 AUC - ROC Curve - Status: Not Started\n- [ ] 92 K-Nearest Neighbors (KNN) - Status: Not Started\n\n## Database - MySQL\n\n- [ ] 93 Python + MySQL - Status: Not Started\n\n## Database - MongoDB\n\n- [ ] 94 Python + MongoDB - Status: Not Started\n\n## Mini Projects\n\n- [ ] 01 Calculator - Status: Not Started\n- [ ] 02 Number Guessing Game - Status: Not Started\n- [ ] 03 Temperature Converter - Status: Not Started\n- [ ] 04 Grade Calculator - Status: Not Started\n- [ ] 05 To-Do List - Status: Not Started\n- [ ] 06 Contact Book - Status: Not Started\n- [ ] 07 Expense Tracker - Status: Not Started\n- [ ] 08 Student Management (mini) - Status: Not Started\n- [ ] 09 Inventory Management - Status: Not Started\n- [ ] 10 Library Management - Status: Not Started\n- [ ] 11 Bank Account Simulation - Status: Not Started\n- [ ] 12 File-Based Database - Status: Not Started\n- [ ] 13 CSV Data Analyzer - Status: Not Started\n- [ ] 14 Student Data Analyzer - Status: Not Started\n- [ ] 15 Expense Analyzer - Status: Not Started\n\n## Final Project\n\n- [ ] Student Management System - Status: Not Started\n
+# Python Learning Progress
+
+Roadmap belajar Python dari dasar hingga machine learning — dalam Bahasa Indonesia.
+
+---
+
+## Daftar Isi
+
+- [Fundamentals](#fundamentals)
+- [Data Structures](#data-structures)
+- [Control Flow](#control-flow)
+- [Functions](#functions)
+- [Advanced Basics](#advanced-basics)
+- [OOP](#oop)
+- [File Handling](#file-handling)
+- [Libraries](#libraries)
+- [Machine Learning](#machine-learning)
+- [Database](#database)
+- [Mini Projects](#mini-projects)
+- [Final Project](#final-project)
+
+---
+
+## Fundamentals
+
+| #   | Topik                            | Status     |
+| --- | -------------------------------- | ---------- |
+| 01  | Python Home / Overview           | ✅ Selesai |
+| 02  | Introduction to Python           | ✅ Selesai |
+| 03  | Getting Started (Running Python) | ✅ Selesai |
+| 04  | Python Syntax                    | ✅ Selesai |
+| 05  | Output with print()              | ✅ Selesai |
+| 06  | Comments                         | ✅ Selesai |
+| 07  | Variables                        | ✅ Selesai |
+| 08  | Data Types                       | ✅ Selesai |
+| 09  | Numbers (int, float, complex)    | ✅ Selesai |
+| 10  | Type Casting                     | ✅ Selesai |
+| 11  | Strings                          | ✅ Selesai |
+| 12  | Booleans                         | ✅ Selesai |
+| 13  | Operators                        | ✅ Selesai |
+
+---
+
+## Data Structures
+
+| #   | Topik        | Status     |
+| --- | ------------ | ---------- |
+| 14  | Lists        | ✅ Selesai |
+| 15  | Tuples       | ✅ Selesai |
+| 16  | Sets         | ✅ Selesai |
+| 17  | Dictionaries | ✅ Selesai |
+
+---
+
+## Control Flow
+
+| #   | Topik           | Status     |
+| --- | --------------- | ---------- |
+| 18  | If...Else       | ✅ Selesai |
+| 19  | Match Statement | ✅ Selesai |
+| 20  | While Loops     | ✅ Selesai |
+| 21  | For Loops       | ✅ Selesai |
+
+---
+
+## Functions
+
+| #   | Topik                            | Status     |
+| --- | -------------------------------- | ---------- |
+| 22  | Functions                        | ✅ Selesai |
+| 23  | Lambda Functions                 | ✅ Selesai |
+| 24  | Arrays (via list / array module) | ✅ Selesai |
+| 25  | Iterators                        | ✅ Selesai |
+| 26  | Variable Scope                   | ✅ Selesai |
+| 27  | Modules                          | ✅ Selesai |
+
+---
+
+## Advanced Basics
+
+| #   | Topik                 | Status     |
+| --- | --------------------- | ---------- |
+| 28  | Dates and Times       | ✅ Selesai |
+| 29  | Math Module           | ✅ Selesai |
+| 30  | JSON                  | ✅ Selesai |
+| 31  | Regular Expressions   | ✅ Selesai |
+| 32  | Pip (Package Manager) | ✅ Selesai |
+| 33  | Exception Handling    | ✅ Selesai |
+| 34  | String Formatting     | ✅ Selesai |
+| 35  | The None Type         | ✅ Selesai |
+| 36  | User Input            | ✅ Selesai |
+| 37  | Virtual Environments  | ✅ Selesai |
+
+---
+
+## OOP
+
+| #   | Topik                               | Status     |
+| --- | ----------------------------------- | ---------- |
+| 38  | OOP Introduction                    | ✅ Selesai |
+| 39  | Classes and Objects                 | ✅ Selesai |
+| 40  | The `__init__()` Method             | ✅ Selesai |
+| 41  | The self Parameter                  | ✅ Selesai |
+| 42  | Class Properties (Attributes)       | ✅ Selesai |
+| 43  | Instance, Class, and Static Methods | ✅ Selesai |
+| 44  | Magic (Dunder) Methods              | ✅ Selesai |
+| 45  | Inheritance                         | ✅ Selesai |
+| 46  | Polymorphism                        | ✅ Selesai |
+| 47  | Encapsulation                       | ✅ Selesai |
+| 48  | Inner (Nested) Classes              | ✅ Selesai |
+
+---
+
+## File Handling
+
+| #   | Topik                      | Status     |
+| --- | -------------------------- | ---------- |
+| 49  | File Handling Overview     | ✅ Selesai |
+| 50  | Reading Files              | ✅ Selesai |
+| 51  | Writing and Creating Files | ✅ Selesai |
+| 52  | Deleting Files and Folders | ✅ Selesai |
+
+---
+
+## Libraries
+
+### NumPy
+
+| #   | Topik | Status    |
+| --- | ----- | --------- |
+| 53  | NumPy | 🔄 Proses |
+
+### Pandas
+
+| #   | Topik  | Status    |
+| --- | ------ | --------- |
+| 54  | Pandas | 🔄 Proses |
+
+### SciPy
+
+| #   | Topik | Status    |
+| --- | ----- | --------- |
+| 55  | SciPy | 🔄 Proses |
+
+### Django
+
+| #   | Topik               | Status    |
+| --- | ------------------- | --------- |
+| 56  | Django Introduction | 🔄 Proses |
+
+### Matplotlib
+
+| #   | Topik                      | Status    |
+| --- | -------------------------- | --------- |
+| 57  | Matplotlib Introduction    | 🔄 Proses |
+| 58  | Matplotlib Getting Started | 🔄 Proses |
+| 59  | The Pyplot Module          | 🔄 Proses |
+| 60  | Plotting X and Y Points    | 🔄 Proses |
+| 61  | Markers                    | 🔄 Proses |
+| 62  | Line Styles                | 🔄 Proses |
+| 63  | Labels and Titles          | 🔄 Proses |
+| 64  | Adding Grid Lines          | 🔄 Proses |
+| 65  | Subplots                   | 🔄 Proses |
+| 66  | Scatter Plots              | 🔄 Proses |
+| 67  | Bar Charts                 | 🔄 Proses |
+| 68  | Histograms                 | 🔄 Proses |
+| 69  | Pie Charts                 | 🔄 Proses |
+
+---
+
+## Machine Learning
+
+| #   | Topik                               | Status   |
+| --- | ----------------------------------- | -------- |
+| 70  | Machine Learning Introduction       | ⬜ Belum |
+| 71  | Mean, Median, Mode                  | ⬜ Belum |
+| 72  | Standard Deviation                  | ⬜ Belum |
+| 73  | Percentiles                         | ⬜ Belum |
+| 74  | Data Distribution                   | ⬜ Belum |
+| 75  | Normal Distribution                 | ⬜ Belum |
+| 76  | Scatter Plot for ML                 | ⬜ Belum |
+| 77  | Linear Regression                   | ⬜ Belum |
+| 78  | Polynomial Regression               | ⬜ Belum |
+| 79  | Multiple Regression                 | ⬜ Belum |
+| 80  | Feature Scaling                     | ⬜ Belum |
+| 81  | Train/Test Split                    | ⬜ Belum |
+| 82  | Decision Tree                       | ⬜ Belum |
+| 83  | Confusion Matrix                    | ⬜ Belum |
+| 84  | Hierarchical Clustering             | ⬜ Belum |
+| 85  | Logistic Regression                 | ⬜ Belum |
+| 86  | Grid Search (Hyperparameter Tuning) | ⬜ Belum |
+| 87  | Categorical Data                    | ⬜ Belum |
+| 88  | K-Means Clustering                  | ⬜ Belum |
+| 89  | Bootstrap Aggregation (Bagging)     | ⬜ Belum |
+| 90  | Cross Validation                    | ⬜ Belum |
+| 91  | AUC - ROC Curve                     | ⬜ Belum |
+| 92  | K-Nearest Neighbors (KNN)           | ⬜ Belum |
+
+---
+
+## Database
+
+| #   | Topik            | Status   |
+| --- | ---------------- | -------- |
+| 93  | Python + MySQL   | ⬜ Belum |
+| 94  | Python + MongoDB | ⬜ Belum |
+
+---
+
+## Mini Projects
+
+| #   | Proyek                    | Status   |
+| --- | ------------------------- | -------- |
+| 01  | Calculator                | ⬜ Belum |
+| 02  | Number Guessing Game      | ⬜ Belum |
+| 03  | Temperature Converter     | ⬜ Belum |
+| 04  | Grade Calculator          | ⬜ Belum |
+| 05  | To-Do List                | ⬜ Belum |
+| 06  | Contact Book              | ⬜ Belum |
+| 07  | Expense Tracker           | ⬜ Belum |
+| 08  | Student Management (mini) | ⬜ Belum |
+| 09  | Inventory Management      | ⬜ Belum |
+| 10  | Library Management        | ⬜ Belum |
+| 11  | Bank Account Simulation   | ⬜ Belum |
+| 12  | File-Based Database       | ⬜ Belum |
+| 13  | CSV Data Analyzer         | ⬜ Belum |
+| 14  | Student Data Analyzer     | ⬜ Belum |
+| 15  | Expense Analyzer          | ⬜ Belum |
+
+---
+
+## Final Project
+
+| Proyek                    | Status   |
+| ------------------------- | -------- |
+| Student Management System | ⬜ Belum |
+
+---
+
+## Keterangan Status
+
+| Simbol     | Arti                   |
+| ---------- | ---------------------- |
+| ⬜ Belum   | Topik belum dikerjakan |
+| 🔄 Proses  | Sedang dikerjakan      |
+| ✅ Selesai | Topik sudah selesai    |
