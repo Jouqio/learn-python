@@ -1,43 +1,67 @@
-"""
-Topic: Standard Deviation
-Level: Intermediate
-Source Reference: W3Schools Python Tutorial (curriculum order only, content is original)
-"""
+# 1. KONSEP
 
-# ============================================
-# 1. CONCEPT
-# ============================================
-# Standard deviation measures how spread out values are around the mean.
+# Standar deviasi mengukur seberapa jauh data menyebar dari rata-ratanya.
+#
+# - Standar deviasi KECIL → data berkumpul dekat dengan rata-rata (seragam)
+# - Standar deviasi BESAR → data menyebar jauh dari rata-rata (bervariasi)
+#
+# Hubungan dengan varians:
+# - Varians   = rata-rata kuadrat jarak setiap nilai dari mean
+# - Standar deviasi = akar kuadrat dari varians
 
-# ============================================
-# 2. EXAMPLE
-# ============================================
+# 2. CONTOH
 
 import numpy as np
+from statistics import stdev, variance
 
 data = np.array([32, 111, 138, 28, 59, 77, 97])
-print("Std Dev:", np.std(data))
-print("Variance:", np.var(data))
 
-# ============================================
-# 3. PRACTICE
-# ============================================
-# EXERCISE 1 (easy): Compute the standard deviation of a small dataset.
-# EXERCISE 2 (easy): Compute the variance of the same dataset and relate it to std dev (variance = std^2).
-# EXERCISE 3 (easy): Compare the std dev of two datasets with the same mean but different spread.
-# EXERCISE 4 (medium): Explain (via prints) what a low vs high standard deviation implies.
-# EXERCISE 5 (medium): Compute std dev using the statistics module instead of NumPy.
-#
-# Write your solutions below this line.
+# Menggunakan NumPy
+print("=== NumPy ===")
+print(f"Mean             : {np.mean(data):.2f}")
+print(f"Standar Deviasi  : {np.std(data):.2f}")
+print(f"Varians          : {np.var(data):.2f}")
+print(f"Std² = Varians   : {np.std(data)**2:.2f}")  # std² = varians
 
+# Menggunakan modul statistics bawaan Python
+print("\n=== Modul statistics ===")
+data_list = data.tolist()
+print(f"Standar Deviasi  : {stdev(data_list):.2f}")   # ddof=1 (sampel)
+print(f"Varians          : {variance(data_list):.2f}")
 
-# ============================================
-# 4. CHALLENGE
-# ============================================
-# Write a function that flags values in a dataset that are more than 2 standard deviations from the mean (simple outlier detection).
+# Membandingkan dua dataset dengan mean sama tapi penyebaran berbeda
+print("\n=== Perbandingan Penyebaran ===")
+data_seragam  = np.array([48, 49, 50, 51, 52])   # menyebar sedikit
+data_bervariasi = np.array([10, 30, 50, 70, 90]) # menyebar jauh
 
+print(f"Data seragam    — mean: {np.mean(data_seragam):.1f}, std: {np.std(data_seragam):.2f}")
+print(f"Data bervariasi — mean: {np.mean(data_bervariasi):.1f}, std: {np.std(data_bervariasi):.2f}")
+print("Mean sama, tapi penyebaran sangat berbeda.")
 
-# ============================================
-# 5. SUMMARY
-# ============================================
-# Standard deviation quantifies spread; low values mean data clusters near the mean, high values mean it's spread out.
+# Deteksi outlier — nilai yang lebih dari 2 standar deviasi dari mean
+def deteksi_outlier(data):
+    mean = np.mean(data)
+    std  = np.std(data)
+    batas_atas  = mean + 2 * std
+    batas_bawah = mean - 2 * std
+
+    print(f"Mean      : {mean:.2f}")
+    print(f"Std Dev   : {std:.2f}")
+    print(f"Batas     : {batas_bawah:.2f} — {batas_atas:.2f}")
+
+    outlier = [x for x in data if x < batas_bawah or x > batas_atas]
+    normal  = [x for x in data if batas_bawah <= x <= batas_atas]
+
+    print(f"Normal    : {normal}")
+    print(f"Outlier   : {outlier}")
+
+nilai = np.array([50, 52, 49, 53, 51, 48, 95, 50, 47, 5])
+deteksi_outlier(nilai)
+
+# 3. RANGKUMAN
+
+# - Standar deviasi mengukur seberapa jauh data menyebar dari mean.
+# - Std kecil → data seragam; std besar → data sangat bervariasi.
+# - Varians = std² — keduanya mengukur penyebaran, std lebih mudah dibaca.
+# - Nilai lebih dari 2 std dari mean umumnya dianggap outlier.
+# - Gunakan np.std() untuk array NumPy, stdev() dari modul statistics untuk list biasa.
